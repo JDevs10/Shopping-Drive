@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Shopping Drive</string>
+    <string name="delivery_man">Delivery man</string>
+    <string name="radiobutton">RadioButton</string>
+    <string name="user">User</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="merchant">Merchant</string>
+</resources>

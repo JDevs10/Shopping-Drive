@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "106229269983",
+    "firebase_url": "https://test-jl010.firebaseio.com",
+    "project_id": "test-jl010",
+    "storage_bucket": "test-jl010.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:106229269983:android:15b5eaa821ef4425",
+        "android_client_info": {
+          "package_name": "com.example.j_lds.shoppingdrive"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "106229269983-3f8agbp9srtuphreqvaqf2u2mvhn9ujh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.j_lds.shoppingdrive",
+            "certificate_hash": "528773346c90b53b5590081075f370f9439d419b"
+          }
+        },
+        {
+          "client_id": "106229269983-fkb79ha4b9ler11emjbhttet77ku833p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtN47Y3vbY4Hh3WOFi5ACPqBQSLT0G9Ug"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "106229269983-fkb79ha4b9ler11emjbhttet77ku833p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
