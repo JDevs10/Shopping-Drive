@@ -31,13 +31,19 @@ public class Login extends AppCompatActivity {
 
     private FirebaseDatabase database;
     private DatabaseReference myRef;
+    private DatabaseReference userDbReference;
+    private DatabaseReference articleDbReference;
+    private DatabaseReference userFirstnameDbReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("message");
+        myRef = database.getReference();
+//        userDbReference = myRef.child("user");
+//        articleDbReference = myRef.child("article");
+//        userFirstnameDbReference = userDbReference.child("0").child("firstname");
 
         //Hides MACC bar at the top.................................................................
         getSupportActionBar().hide();
@@ -66,6 +72,16 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 register_layout();
+            }
+        });
+
+        login_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
+
+                myRef.setValue("Hello, World!");
             }
         });
     }

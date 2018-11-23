@@ -6,4 +6,6 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="merchant">Merchant</string>
+    <string name="shopping_drive">Shopping Drive</string>
+    <string name="register">Register</string>
 </resources>
