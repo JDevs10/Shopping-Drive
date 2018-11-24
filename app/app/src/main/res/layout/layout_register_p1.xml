@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
 
     <TextView
         android:id="@+id/textView_register"
@@ -14,7 +15,7 @@
         android:layout_marginRight="114dp"
         android:layout_marginStart="115dp"
         android:layout_marginTop="10dp"
-        android:text="Registration"
+        android:text="@string/registration"
         android:textColor="@android:color/background_dark"
         android:textSize="36sp"
         app:fontFamily="cursive"
@@ -23,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_userName"
+        android:id="@+id/editText_firstName"
         android:layout_width="wrap_content"
         android:layout_height="43dp"
         android:layout_marginEnd="68dp"
@@ -32,7 +33,7 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="User"
+        android:hint="@string/firstname"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +41,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_register" />
 
     <EditText
-        android:id="@+id/editText_user_pwd"
+        android:id="@+id/editText_lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="68dp"
@@ -49,12 +50,12 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/lastname"
         android:inputType="textPersonName"
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_userName" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_firstName" />
 
     <EditText
         android:id="@+id/editText_email"
@@ -66,12 +67,12 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_user_pwd" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_lastName" />
 
     <EditText
         android:id="@+id/editText_phoneNumber"
@@ -83,7 +84,7 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Phone number"
+        android:hint="@string/phone_number"
         android:inputType="phone"
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editText_email" />
 
     <EditText
-        android:id="@+id/editText_address"
+        android:id="@+id/editText_user_regist_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="68dp"
@@ -100,14 +101,14 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Address"
+        android:hint="@string/password"
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_phoneNumber" />
 
     <EditText
-        android:id="@+id/editText_zipCode"
+        android:id="@+id/editText_confirm_user_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="68dp"
@@ -116,24 +117,24 @@
         android:layout_marginStart="39dp"
         android:layout_marginTop="5dp"
         android:ems="10"
-        android:hint="Zip Code"
+        android:hint="@string/confirm_password"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_address" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_user_regist_pwd" />
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/button_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="68dp"
         android:layout_marginRight="68dp"
         android:layout_marginTop="14dp"
-        android:text="Save"
+        android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_zipCode" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
 
     <Button
         android:id="@+id/button_backToLogin"
@@ -143,9 +144,9 @@
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="14dp"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_zipCode" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
 
 </android.support.constraint.ConstraintLayout>

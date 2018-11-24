@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <TextView
+        android:id="@+id/textView_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="114dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginRight="114dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/registration"
+        android:textColor="@android:color/background_dark"
+        android:textSize="36sp"
+        app:fontFamily="cursive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editText_street_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="@string/street_address"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_register" />
+
+    <EditText
+        android:id="@+id/editText_city_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/city"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_street_address" />
+
+    <EditText
+        android:id="@+id/editText_country_code_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/country_code"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_city_address" />
+
+    <EditText
+        android:id="@+id/editText_country_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/country"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_country_code_address" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="56dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_back_regist1"
+        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+
+    <Button
+        android:id="@+id/button_back_regist1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="55dp"
+        android:text="@string/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+
+
+</android.support.constraint.ConstraintLayout>

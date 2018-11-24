@@ -8,4 +8,17 @@
     <string name="merchant">Merchant</string>
     <string name="shopping_drive">Shopping Drive</string>
     <string name="register">Register</string>
+    <string name="registration">Registration</string>
+    <string name="firstname">Firstname</string>
+    <string name="lastname">Lastname</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone number</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="street_address">Street address</string>
+    <string name="city">City</string>
+    <string name="country_code">Country Code</string>
+    <string name="country">Country</string>
+    <string name="save">Save</string>
 </resources>
