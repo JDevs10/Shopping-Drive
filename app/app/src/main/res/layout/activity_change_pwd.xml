@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".ChangePWD"
     android:background="@color/color_background">
 
     <TextView
-        android:id="@+id/textView_register"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView_change_pwd_changePWD_title"
+        android:layout_width="295dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="114dp"
-        android:layout_marginLeft="115dp"
-        android:layout_marginRight="114dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="10dp"
-        android:text="@string/registration"
-        android:textColor="@android:color/background_dark"
+        android:layout_marginEnd="18dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
+        android:text="Change your Password"
+        android:textColor="@color/color_dark"
         android:textSize="36sp"
         app:fontFamily="cursive"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,23 +25,24 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editText_street_address"
+        android:id="@+id/editText_change_pwd_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="54dp"
         android:layout_marginLeft="53dp"
         android:layout_marginRight="54dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
-        android:hint="@string/street_address"
-        android:inputType="textPersonName"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/color_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_register" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_change_pwd_changePWD_title" />
 
     <EditText
-        android:id="@+id/editText_city_address"
+        android:id="@+id/editText_change_pwd_pwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="54dp"
@@ -49,14 +51,15 @@
         android:layout_marginStart="53dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="@string/city"
-        android:inputType="textPersonName"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/color_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_street_address" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_email" />
 
     <EditText
-        android:id="@+id/editText_country_code_address"
+        android:id="@+id/editText_change_pwd_cPWD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="54dp"
@@ -65,30 +68,15 @@
         android:layout_marginStart="53dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="@string/country_code"
-        android:inputType="textPersonName"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:textColor="@color/color_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_city_address" />
-
-    <EditText
-        android:id="@+id/editText_country_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/country"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_code_address" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_pwd" />
 
     <Button
-        android:id="@+id/button_save"
+        android:id="@+id/button_change_pwd_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
@@ -96,25 +84,27 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="56dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="55dp"
-        android:text="@string/save"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/round_edge_button"
+        android:text="Rest"
+        android:textColor="@color/color_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_back_regist1"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+        app:layout_constraintStart_toEndOf="@+id/button_change_pwd_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_cPWD" />
 
     <Button
-        android:id="@+id/button_back_regist1"
+        android:id="@+id/button_change_pwd_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="53dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="55dp"
-        android:text="@string/back"
+        android:layout_marginTop="104dp"
+        android:background="@drawable/round_edge_button"
+        android:text="Cancel"
+        android:textColor="@color/color_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_cPWD" />
 </android.support.constraint.ConstraintLayout>
