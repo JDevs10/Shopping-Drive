@@ -21,4 +21,8 @@
     <string name="country_code">Country Code</string>
     <string name="country">Country</string>
     <string name="save">Save</string>
+    <string name="merchant_name">Merchant Name</string>
+    <string name="todo">TODO</string>
+    <string name="image_description">img_descript</string>
+    <string name="articles">Articles</string>
 </resources>

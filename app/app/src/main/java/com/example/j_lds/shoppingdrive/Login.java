@@ -68,6 +68,9 @@ public class Login extends AppCompatActivity {
                 pwd_st = user_pwd_et.getText().toString().trim();
                 Toast.makeText(getBaseContext(), "Login in",Toast.LENGTH_SHORT).show();
 
+                Intent intent= new Intent(Login.this,FindMerchant.class);
+                startActivity(intent);
+
             }
         });
 
