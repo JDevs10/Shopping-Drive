@@ -24,7 +24,8 @@ public class FindMerchant extends AppCompatActivity {
         recyclerView_findMerchant.setHasFixedSize(true);
         recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new MyAdapter();
+
+        adapter = new FindMerchantAdapter();
 
         recyclerView_findMerchant.setAdapter(adapter);
     }
