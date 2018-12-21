@@ -19,7 +19,8 @@
         <activity android:name=".Register" />
         <activity android:name=".ChangePWD" />
         <activity android:name=".FindMerchant" />
-        <activity android:name=".FindMerchantArticles"></activity>
+        <activity android:name=".FindMerchantArticles" />
+        <activity android:name=".DetailArticle"></activity>
     </application>
 
 </manifest>
