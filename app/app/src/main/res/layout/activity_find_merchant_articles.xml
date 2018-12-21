@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
+    android:background="@color/colorPrimary"
     tools:context=".FindMerchantArticles">
 
     <TextView
@@ -16,8 +17,8 @@
         android:layout_marginRight="128dp"
         android:layout_marginStart="83dp"
         android:layout_marginTop="16dp"
-        android:text="Articles"
-        android:textColor="@color/color_dark"
+        android:text="@string/articles"
+        android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,9 +33,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/baseline_keyboard_arrow_left_black_18dp"
+        android:onClick="back_from_merchantArticles_to_merchantList"
         android:textAllCaps="false"
         android:textSize="12sp"
-        android:onClick="back_from_merchantArticles_to_merchantList"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,11 +44,13 @@
         android:layout_width="match_parent"
         android:layout_height="405dp"
         android:layout_marginTop="8dp"
-        android:columnWidth="500dp"
         android:gravity="center"
         android:numColumns="2"
+        android:horizontalSpacing="10dp"
+        android:verticalSpacing="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"
-        tools:layout_editor_absoluteX="32dp"></GridView>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 </android.support.constraint.ConstraintLayout>

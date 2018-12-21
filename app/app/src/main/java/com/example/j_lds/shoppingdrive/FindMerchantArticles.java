@@ -3,8 +3,6 @@ package com.example.j_lds.shoppingdrive;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.GridView;
@@ -13,7 +11,7 @@ import android.widget.Toast;
 public class FindMerchantArticles extends AppCompatActivity {
 
     private GridView gridView_findMerchantAticles;
-    private MyFindMerchantArticlesAdapter FindMerchantArticlesAdapter;
+    private FindMerchantArticlesAdapter FindMerchantArticlesAdapter;
 
     private int[] imageView_articles = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5,
             R.drawable.image6, R.drawable.image7, R.drawable.image8, R.drawable.image9, R.drawable.image10};
@@ -34,7 +32,7 @@ public class FindMerchantArticles extends AppCompatActivity {
 
         gridView_findMerchantAticles = (GridView)findViewById(R.id.gridView_merchant_articles);
 
-        FindMerchantArticlesAdapter = new MyFindMerchantArticlesAdapter(this, imageView_articles, article_names, article_prices);
+        FindMerchantArticlesAdapter = new FindMerchantArticlesAdapter(this, imageView_articles, article_names, article_prices);
 
         gridView_findMerchantAticles.setAdapter(FindMerchantArticlesAdapter);
 
@@ -45,7 +43,13 @@ public class FindMerchantArticles extends AppCompatActivity {
 
         Intent intent = new Intent(FindMerchantArticles.this, FindMerchant.class);
         startActivity(intent);
-
-
     }
+
+    public void viewArticle(View view){
+        Intent intent = new Intent(FindMerchantArticles.this, DetailArticle.class);
+        startActivity(intent);
+
+        Toast.makeText(getBaseContext(),"view this article",Toast.LENGTH_LONG).show();
+    }
+
 }

@@ -1,23 +1,26 @@
 package com.example.j_lds.shoppingdrive;
 
 import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class MyFindMerchantArticlesAdapter extends BaseAdapter{
+public class FindMerchantArticlesAdapter extends BaseAdapter{
 
-    Context context;
+    private Context context;
     private final int[] images;
     private final String[] names;
     private final double[] prices;
     View view;
-    LayoutInflater layoutInflater;
 
-    public MyFindMerchantArticlesAdapter(Context context, int[] images, String[] names, double[] prices) {
+    FindMerchantArticlesAdapter(Context context, int[] images, String[] names, double[] prices) {
         this.context = context;
         this.images = images;
         this.names = names;
@@ -31,17 +34,18 @@ public class MyFindMerchantArticlesAdapter extends BaseAdapter{
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return position;
     }
 
     @Override
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         if (convertView == null){
             view = new View(context);
@@ -53,9 +57,11 @@ public class MyFindMerchantArticlesAdapter extends BaseAdapter{
             article_image.setImageResource(images[position]);
             article_name.setText(names[position]);
             article_price.setText(prices[position]+" €");
+
         }
         return view;
     }
+
 }
 
 
