@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailArticle"
-    android:background="@color/colorPrimary">
+    android:background="@color/colorPrimary"
+    tools:context=".DetailArticle">
 
     <Button
         android:id="@+id/button_back_from_detail-article_to_find_merchant_articles"
@@ -17,8 +17,8 @@
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_weight="1"
-        android:onClick="back_from_DetailArticle_to_merchantArticles"
         android:background="@drawable/baseline_keyboard_arrow_left_black_18dp"
+        android:onClick="back_from_DetailArticle_to_merchantArticles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -95,25 +95,59 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_detail-article-addToBasket" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="282dp"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:padding="10dp"
-        android:text="No items added yet"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="38dp"
-        android:layout_height="39dp"
+        <ImageView
+            android:id="@+id/basket_list"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/ic_basket" />
+
+        <TextView
+            android:id="@+id/textView_article_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="The basket is empty... 0 articles"
+            android:textColor="@color/color_dark"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/arrow_down_list"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            android:onClick="dropDownBasketList"
+            android:src="@drawable/arrow_down_black" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_drop_down_basket"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_basket" />
+        android:scrollbars="vertical"
+        android:visibility="gone"
+        android:elevation="100dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </android.support.constraint.ConstraintLayout>
