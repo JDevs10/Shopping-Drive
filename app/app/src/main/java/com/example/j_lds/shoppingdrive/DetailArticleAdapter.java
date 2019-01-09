@@ -7,16 +7,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import android.content.Context;
+
 public class DetailArticleAdapter extends RecyclerView.Adapter<DetailArticleAdapter.ViewHolder>{
 
-    public String[] article_basket_names = {"Article 1", "Article 2", "Article 3", "Article 4", "Article 5",
-            "Article 6", "Article 7", "Article 8", "Article 9", "Article 10"};
+    private Context context;
+    private final String[] names;
+    private final double[] prices;
+    View view;
 
-    private double[] article_basket_price = {1.20, 6.51, 3.25, 9.86, 9.70,
-            84.6, 995.0, 1234.56, 0.99, 0.01};
-
-    public int getArticle_basket_names_length() {
-        return article_basket_names.length;
+    public DetailArticleAdapter(Context context, String[] names, double[] prices) {
+        this.context = context;
+        this.names = names;
+        this.prices = prices;
     }
 
     @NonNull
@@ -25,34 +28,34 @@ public class DetailArticleAdapter extends RecyclerView.Adapter<DetailArticleAdap
 //        return null;
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.custom_basket_articles,parent,false);
-        return new DetailArticleAdapter.ViewHolder(v);
+        return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String listItem_NAMES = article_basket_names[position];
-        double listItem_PRICE = article_basket_price[position];
+    public void onBindViewHolder(@NonNull DetailArticleAdapter.ViewHolder holder, int position) {
+
+        String listItem_NAMES = names[position];
+        double listItem_PRICES = prices[position];
 
         holder.article_name.setText(listItem_NAMES);
-        holder.article_price.setText(listItem_PRICE+" €");
+        holder.article_price.setText(listItem_PRICES+" €");
     }
 
     @Override
     public int getItemCount() {
-        return article_basket_names.length;
+        return names.length;
     }
 
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView article_name;
-        public TextView article_price;
+        TextView article_name;
+        TextView article_price;
 
         public ViewHolder(View itemView) {
             super(itemView);
 
-            article_name = (TextView) itemView.findViewById(R.id.custom_basket_article_name);
-            article_price = (TextView) itemView.findViewById(R.id.custom_basket_article_price);
+            article_name = (TextView)itemView.findViewById(R.id.custom_basket_article_name);
+            article_price = (TextView)itemView.findViewById(R.id.custom_basket_article_price);
         }
     }
 }

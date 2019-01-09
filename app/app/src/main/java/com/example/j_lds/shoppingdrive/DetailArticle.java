@@ -13,15 +13,16 @@ import android.widget.Toast;
 
 public class DetailArticle extends AppCompatActivity {
 
-    private RecyclerView recyclerView_basket;
-    private RecyclerView.Adapter adapter;
-
     private TextView showBasketInfo;
 
     private Button showBasketButton, back;
 
-    private boolean active_basket;
-    private DetailArticleAdapter daa = new DetailArticleAdapter();
+    private RecyclerView mRecycleView;
+    private DetailArticleAdapter mDetailArticleAdapter;
+
+    private String[] article_names = {"Article 1", "Article 2", "Article 3", "Article 4", "Article 5",
+            "Article 6", "Article 7", "Article 8", "Article 9", "Article 10"};
+    private double[] article_prices = {2.30, 4.50, 1.20, 3.50, 5.60, 7.99, 9.39, 6.49, 8.99, 10.01};
 
 
     @Override
@@ -34,6 +35,18 @@ public class DetailArticle extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+
+
+        //set recycle view / get my basket "if I have"..............................................
+        showBasketInfo = (TextView)findViewById(R.id.textView_basket_recycleView_info);
+
+        mRecycleView = (RecyclerView)findViewById(R.id.recyclerView_basket);
+        mRecycleView.setHasFixedSize(true);
+        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
+
+        mDetailArticleAdapter = new DetailArticleAdapter(this, article_names, article_prices);
+
+
         back = (Button)findViewById(R.id.button_back_from_detail_article_to_find_merchant_articles);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,44 +55,37 @@ public class DetailArticle extends AppCompatActivity {
             }
         });
 
-        showBasketInfo = (TextView)findViewById(R.id.textView_basket_recycleView_info);
-        if(daa.getArticle_basket_names_length() == 0){
-            showBasketInfo.setText("The basket is empty... "+daa.getArticle_basket_names_length()+" articles");
-        }else{
-            showBasketInfo.setText("The basket has "+daa.getArticle_basket_names_length()+" articles");
-        }
-
-
-        active_basket = false;
         showBasketButton = (Button)findViewById(R.id.Button_detailArticle_arrow_down_black);
         showBasketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showBasket();
+                dropDownBasketList();
             }
         });
 
 
-        recyclerView_basket = (RecyclerView)findViewById(R.id.recyclerView_basket);
-        recyclerView_basket.setVisibility(View.GONE);
-        recyclerView_basket.setHasFixedSize(true);
-        recyclerView_basket.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new DetailArticleAdapter();
-
-        recyclerView_basket.setAdapter(adapter);
     }
 
-    public void showBasket(){
-        if (!active_basket){
-            active_basket = true;
-            Toast.makeText(getBaseContext(), "hello basket", Toast.LENGTH_LONG).show();
-            recyclerView_basket.setVisibility(View.VISIBLE);
-        }else{
-            active_basket = false;
-            Toast.makeText(getBaseContext(), "bye basket", Toast.LENGTH_LONG).show();
-            recyclerView_basket.setVisibility(View.GONE);
-        }
+    public void dropDownBasketList(){
+        Toast.makeText(getBaseContext(),"Show my basket",Toast.LENGTH_LONG).show();
+
+        showBasketButton.setOnClickListener(new View.OnClickListener() {
+            boolean btn_down = true;
+            @Override
+            public void onClick(View v) {
+                if (btn_down){
+                    showBasketInfo.setText("The basket has "+article_names.length+" articles");
+                    mRecycleView.setVisibility(View.VISIBLE);
+                    showBasketButton.setRotation(180);
+                    mRecycleView.setAdapter(mDetailArticleAdapter);
+                    btn_down = false;
+                }else{
+                    mRecycleView.setVisibility(View.GONE);
+                    showBasketButton.setRotation(0);
+                    btn_down = true;
+                }
+            }
+        });
     }
 
     public void back_from_DetailArticle_to_merchantArticles(){
