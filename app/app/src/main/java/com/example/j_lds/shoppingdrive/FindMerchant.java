@@ -29,8 +29,6 @@ public class FindMerchant extends AppCompatActivity {
 
         adapter = new FindMerchantAdapter();
 
-        adapter = new MyFindMerchantAdapter();
-
         recyclerView_findMerchant.setAdapter(adapter);
     }
 
