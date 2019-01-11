@@ -20,7 +20,9 @@
         <activity android:name=".ChangePWD" />
         <activity android:name=".FindMerchant" />
         <activity android:name=".FindMerchantArticles" />
-        <activity android:name=".DetailArticle"></activity>
+        <activity android:name=".DetailArticle" />
+        <activity android:name=".Checkout" />
+        <activity android:name=".UserBasket"></activity>
     </application>
 
 </manifest>

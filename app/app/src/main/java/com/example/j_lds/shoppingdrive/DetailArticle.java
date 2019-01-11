@@ -24,6 +24,7 @@ public class DetailArticle extends AppCompatActivity {
             "Article 6", "Article 7", "Article 8", "Article 9", "Article 10"};
     private double[] article_prices = {2.30, 4.50, 1.20, 3.50, 5.60, 7.99, 9.39, 6.49, 8.99, 10.01};
 
+    boolean btn_down = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class DetailArticle extends AppCompatActivity {
 
 
 
-        //set recycle view / get my basket "if I have"..............................................
+        //set recycle view / get my activity_user_basket "if I have"..............................................
         showBasketInfo = (TextView)findViewById(R.id.textView_basket_recycleView_info);
 
         mRecycleView = (RecyclerView)findViewById(R.id.recyclerView_basket);
@@ -50,8 +51,7 @@ public class DetailArticle extends AppCompatActivity {
         back = (Button)findViewById(R.id.button_back_from_detail_article_to_find_merchant_articles);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                back_from_DetailArticle_to_merchantArticles();
+            public void onClick(View v) { back_from_DetailArticle_to_merchantArticles();
             }
         });
 
@@ -67,25 +67,25 @@ public class DetailArticle extends AppCompatActivity {
     }
 
     public void dropDownBasketList(){
-        Toast.makeText(getBaseContext(),"Show my basket",Toast.LENGTH_LONG).show();
+        if (btn_down){
+            Toast.makeText(getBaseContext(),"Show my activity_user_basket",Toast.LENGTH_LONG).show();
 
-        showBasketButton.setOnClickListener(new View.OnClickListener() {
-            boolean btn_down = true;
-            @Override
-            public void onClick(View v) {
-                if (btn_down){
-                    showBasketInfo.setText("The basket has "+article_names.length+" articles");
-                    mRecycleView.setVisibility(View.VISIBLE);
-                    showBasketButton.setRotation(180);
-                    mRecycleView.setAdapter(mDetailArticleAdapter);
-                    btn_down = false;
-                }else{
-                    mRecycleView.setVisibility(View.GONE);
-                    showBasketButton.setRotation(0);
-                    btn_down = true;
-                }
-            }
-        });
+            showBasketInfo.setText("The activity_user_basket has "+article_names.length+" articles");
+            mRecycleView.setVisibility(View.VISIBLE);
+            showBasketButton.setRotation(180);
+            mRecycleView.setAdapter(mDetailArticleAdapter);
+            btn_down = false;
+        }else{
+            mRecycleView.setVisibility(View.GONE);
+            showBasketButton.setRotation(0);
+            btn_down = true;
+        }
+    }
+
+    public void viewUserBasket_from_DetailArticle(View view){
+        Intent intent= new Intent(DetailArticle.this, UserBasket.class);
+        intent.putExtra("where_the_user_was", DetailArticle.class.getSimpleName());
+        startActivity(intent);
     }
 
     public void back_from_DetailArticle_to_merchantArticles(){

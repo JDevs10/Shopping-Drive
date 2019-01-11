@@ -45,6 +45,12 @@ public class FindMerchantArticles extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void viewUserBasket_from_FindMerchantArticles(View view){
+        Intent intent= new Intent(FindMerchantArticles.this, UserBasket.class);
+        intent.putExtra("where_the_user_was", FindMerchantArticles.class.getSimpleName());
+        startActivity(intent);
+    }
+
     public void viewArticle(View view){
         Intent intent = new Intent(FindMerchantArticles.this, DetailArticle.class);
         startActivity(intent);

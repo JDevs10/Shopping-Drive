@@ -105,13 +105,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Button_detailArticle_arrow_down_black"
-        app:layout_constraintStart_toEndOf="@+id/imageView2" />
+        app:layout_constraintStart_toEndOf="@+id/imageView_detail_article_basket_img" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView_detail_article_basket_img"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:background="@android:color/white"
+        android:onClick="viewUserBasket_from_DetailArticle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@mipmap/ic_basket" />
