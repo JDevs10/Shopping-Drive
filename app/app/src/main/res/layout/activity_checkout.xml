@@ -37,13 +37,14 @@
 
     <TextView
         android:id="@+id/textView_checkout_info"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="23dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="23dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
+        android:gravity="center"
         android:text="@string/textView_checkout_info"
         android:textColor="@android:color/black"
         android:textSize="18sp"
@@ -53,7 +54,7 @@
 
     <EditText
         android:id="@+id/editText_checkout_getPWD"
-        android:layout_width="337dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="23dp"
         android:layout_marginLeft="24dp"
@@ -75,7 +76,7 @@
 
     <Button
         android:id="@+id/button_checkout_confirmOrder"
-        android:layout_width="337dp"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="23dp"
         android:layout_marginLeft="24dp"

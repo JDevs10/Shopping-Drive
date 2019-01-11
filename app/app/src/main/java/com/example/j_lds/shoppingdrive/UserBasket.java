@@ -4,18 +4,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
 public class UserBasket extends AppCompatActivity {
 
     private String WhereTheUserWasClass;
-    private Button btn_back;
+    private Button btn_back, btn_sendOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_basket);
+
+        //Hides MACC bar at the top.................................................................
+        getSupportActionBar().hide();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         WhereTheUserWasClass = getIntent().getStringExtra("where_the_user_was");
 
@@ -26,6 +32,19 @@ public class UserBasket extends AppCompatActivity {
                 checkWhereTheUserWas(WhereTheUserWasClass);
             }
         });
+
+        btn_sendOrder = (Button)findViewById(R.id.button_sendMyOrder);
+        btn_sendOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendOrder();
+            }
+        });
+    }
+
+    private void sendOrder(){
+        Intent intent= new Intent(UserBasket.this, Checkout.class);
+        startActivity(intent);
     }
 
     private void checkWhereTheUserWas(String class_name){

@@ -33,7 +33,7 @@ public class Checkout extends AppCompatActivity {
         btn_backWhereTheUserWas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backWhereTheUserWas();
+                back_to_userBasket();
             }
         });
 
@@ -68,7 +68,7 @@ public class Checkout extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        tv_checkout_p2 = (TextView)findViewById(R.id.textView_checkout_p2);
+        tv_checkout_p2 = (TextView)findViewById(R.id.textView_checkout_p2_info);
         tv_checkout_p2.setText("We've got your order. Your Items will be ready-delivered within "+(time-3)+"-"+(time+3)+" minutes");
 
         btn_continue_order = (Button)findViewById(R.id.button_back_to_findMerchantList);
@@ -81,9 +81,8 @@ public class Checkout extends AppCompatActivity {
         });
     }
 
-    private void backWhereTheUserWas(){
-//        Intent intent= new Intent(Checkout.this, get the class where the user by passing through Intent);
-//        startActivity(intent);
-        Toast.makeText(getBaseContext(), "Going back to where the user was", Toast.LENGTH_SHORT).show();
+    private void back_to_userBasket(){
+        Intent intent= new Intent(Checkout.this, UserBasket.class);
+        startActivity(intent);
     }
 }
