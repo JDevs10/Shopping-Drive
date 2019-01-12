@@ -33,4 +33,5 @@
     <string name="confirm_oder">Confirm Oder</string>
     <string name="my_basket">My Basket</string>
     <string name="send_my_order">Send My Order</string>
+    <string name="username">Username</string>
 </resources>

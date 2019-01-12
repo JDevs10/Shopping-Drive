@@ -1,6 +1,7 @@
 package com.example.j_lds.shoppingdrive;
 
 
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +11,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity {
 
@@ -19,61 +23,45 @@ public class Login extends AppCompatActivity {
     Button login_button;
     Button pwd_button;
 
-    private EditText user_et;
+    private EditText username_et;
     private EditText user_pwd_et;
 
-    private String user_st, pwd_st;
+    private String userUsernameInputString;
+    private String userPwdInputString;
 
+    public User loginUser;
 
-    private FirebaseDatabase database;
-    private DatabaseReference myRef;
-    private DatabaseReference userDbReference;
-    private DatabaseReference articleDbReference;
-    private DatabaseReference userFirstnameDbReference;
+    private DatabaseReference  database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        //Hides MACC bar at the top.................................................................
+        //Hides App bar at the top.................................................................
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //declaration on login side.................................................................
-        user_et = findViewById(R.id.editText_user);
+        username_et = findViewById(R.id.editText_username);
         user_pwd_et = findViewById(R.id.editText_user_pwd);
 
-        login_button = findViewById(R.id.button_login);
-        pwd_button = findViewById(R.id.button_pwd);
-        register_button = findViewById(R.id.button_register);
+        loginUser = new User();
 
         //Database..................................................................................
-//        database = FirebaseDatabase.getInstance();
-//        myRef = database.getReference();
-//        userDbReference = myRef.child("user");
-//        articleDbReference = myRef.child("article");
-//        userFirstnameDbReference = userDbReference.child("0").child("firstname");
+        database = FirebaseDatabase.getInstance("https://test-jl010.firebaseio.com/").getReference();
 
 
+        login_button = findViewById(R.id.button_login);
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("message");
-//
-//                myRef.setValue("Hello, World!");
-                user_st = user_et.getText().toString().trim();
-                pwd_st = user_pwd_et.getText().toString().trim();
-                Toast.makeText(getBaseContext(), "Login in",Toast.LENGTH_SHORT).show();
-
-                Intent intent= new Intent(Login.this,FindMerchant.class);
-                startActivity(intent);
-
+                login();
             }
         });
 
+        register_button = findViewById(R.id.button_register);
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +70,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
+        pwd_button = findViewById(R.id.button_pwd);
         pwd_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,5 +80,7 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    private void login() {
 
+    }
 }

@@ -14,7 +14,7 @@
         android:layout_marginLeft="115dp"
         android:layout_marginRight="114dp"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         android:text="@string/registration"
         android:textColor="@android:color/background_dark"
         android:textSize="36sp"
@@ -102,7 +102,7 @@
         android:layout_marginTop="5dp"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPostalAddress"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_phoneNumber" />
@@ -115,10 +115,10 @@
         android:layout_marginLeft="39dp"
         android:layout_marginRight="68dp"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/confirm_password"
-        android:inputType="number"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_user_regist_pwd" />
@@ -130,12 +130,10 @@
         android:layout_marginBottom="17dp"
         android:layout_marginEnd="68dp"
         android:layout_marginRight="68dp"
-        android:layout_marginTop="14dp"
         android:background="@drawable/round_edge_button"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/button_backToLogin"
@@ -144,11 +142,9 @@
         android:layout_marginBottom="17dp"
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="14dp"
         android:background="@drawable/round_edge_button"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
