@@ -47,7 +47,6 @@ public class Register extends AppCompatActivity {
 
     private DatabaseReference mdatabaseReference;
     private FirebaseAuth mAuth;
-    FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +60,7 @@ public class Register extends AppCompatActivity {
         user = new User();
 
         //get database info
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-6db6f.firebaseio.com/").getReference().child("user");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user");
 
         //for the user authentication
         mAuth = FirebaseAuth.getInstance();

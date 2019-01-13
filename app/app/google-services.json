@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "733907641132",
-    "firebase_url": "https://shopping-drive-6db6f.firebaseio.com",
-    "project_id": "shopping-drive-6db6f",
-    "storage_bucket": "shopping-drive-6db6f.appspot.com"
+    "project_number": "359399405041",
+    "firebase_url": "https://shopping-drive-4bdce.firebaseio.com",
+    "project_id": "shopping-drive-4bdce",
+    "storage_bucket": "shopping-drive-4bdce.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:733907641132:android:15b5eaa821ef4425",
+        "mobilesdk_app_id": "1:359399405041:android:15b5eaa821ef4425",
         "android_client_info": {
           "package_name": "com.example.j_lds.shoppingdrive"
         }
       },
       "oauth_client": [
         {
-          "client_id": "733907641132-7c26gdi0aedq6f21ckck44tc7ar6f0qc.apps.googleusercontent.com",
+          "client_id": "359399405041-312tq5jm70tbvs4iivgooqgukkutiqvf.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCgEC9x2SLu_14cmnie8VA42RPp-5iYvvg"
+          "current_key": "AIzaSyDwoQQtEpow4iSwFTIGuVVdxxCloDRJNOA"
         }
       ],
       "services": {
