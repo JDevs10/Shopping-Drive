@@ -34,4 +34,11 @@
     <string name="my_basket">My Basket</string>
     <string name="send_my_order">Send My Order</string>
     <string name="username">Username</string>
+
+    <string-array name="roles">
+        <item>Select role</item>
+        <item>Client</item>
+        <item>Merchant</item>
+        <item>Delivery Man</item>
+    </string-array>
 </resources>

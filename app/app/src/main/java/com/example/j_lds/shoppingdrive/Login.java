@@ -11,11 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.example.j_lds.shoppingdrive.object_class.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
@@ -23,15 +24,11 @@ public class Login extends AppCompatActivity {
     Button login_button;
     Button pwd_button;
 
-    private EditText username_et;
+    private EditText user_email_et;
     private EditText user_pwd_et;
 
-    private String userUsernameInputString;
-    private String userPwdInputString;
-
-    public User loginUser;
-
-    private DatabaseReference  database;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,20 +41,18 @@ public class Login extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         //declaration on login side.................................................................
-        username_et = findViewById(R.id.editText_username);
+        user_email_et = findViewById(R.id.editText_user_email);
         user_pwd_et = findViewById(R.id.editText_user_pwd);
 
-        loginUser = new User();
-
-        //Database..................................................................................
-        database = FirebaseDatabase.getInstance("https://test-jl010.firebaseio.com/").getReference();
+        //initialize the FirebaseAuth instance......................................................
+        mAuth = FirebaseAuth.getInstance();
 
 
         login_button = findViewById(R.id.button_login);
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                login(user_email_et.getText().toString().trim(), user_pwd_et.getText().toString().trim());
             }
         });
 
@@ -80,7 +75,36 @@ public class Login extends AppCompatActivity {
         });
     }
 
-    private void login() {
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        if (currentUser != null){
+            currentUser = mAuth.getCurrentUser();
+        }
+    }
 
+    private void login(String email, String password) {
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            // Sign in success, update UI with the signed-in user's information
+                            currentUser = mAuth.getCurrentUser();
+                            Toast.makeText(Login.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
+
+                            Intent intent= new Intent(Login.this, FindMerchant.class);
+                            intent.putExtra("user_logged_id", currentUser.getUid());
+                            startActivity(intent);
+
+                        } else {
+                            // If sign in fails, display a message to the user.
+                            Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
+
+                        // ...
+                    }
+                });
     }
 }

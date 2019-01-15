@@ -8,12 +8,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapter.ViewHolder> {
 
     private int[] imageView_merchant = {R.drawable.image1, R.drawable.image2, R.drawable.image3, R.drawable.image4, R.drawable.image5,
-                                        R.drawable.image6, R.drawable.image7, R.drawable.image8, R.drawable.image9, R.drawable.image10};
+            R.drawable.image6, R.drawable.image7, R.drawable.image8, R.drawable.image9, R.drawable.image10};
     private String[] merchant_names = {"Merchant 1", "Merchant 2", "Merchant 3", "Merchant 4", "Merchant 5",
-                                        "Merchant 6", "Merchant 7", "Merchant 8", "Merchant 9", "Merchant 10"};
+            "Merchant 6", "Merchant 7", "Merchant 8", "Merchant 9", "Merchant 10"};
+
 
     @NonNull
     @Override

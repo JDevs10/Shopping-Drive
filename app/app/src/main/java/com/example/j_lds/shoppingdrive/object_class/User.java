@@ -1,8 +1,8 @@
-package com.example.j_lds.shoppingdrive;
+package com.example.j_lds.shoppingdrive.object_class;
+
 
 
 public class User {
-    private String userName;
     private String firstname;
     private String lastname;
     private String email;
@@ -69,4 +69,6 @@ public class User {
     public void setRole(String role){
         this.role = role;
     }
+
+
 }
