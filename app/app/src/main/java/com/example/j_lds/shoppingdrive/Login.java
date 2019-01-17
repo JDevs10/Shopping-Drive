@@ -30,6 +30,8 @@ public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
 
+    private int tries = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,21 +91,24 @@ public class Login extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            currentUser = mAuth.getCurrentUser();
-                            Toast.makeText(Login.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
+                        if(tries < 3){
+                            if (task.isSuccessful()) {
+                                // Sign in success, update UI with the signed-in user's information
+                                currentUser = mAuth.getCurrentUser();
+                                Toast.makeText(Login.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
 
-                            Intent intent= new Intent(Login.this, FindMerchant.class);
-                            intent.putExtra("user_logged_id", currentUser.getUid());
-                            startActivity(intent);
+                                Intent intent= new Intent(Login.this, FindMerchant.class);
+                                intent.putExtra("user_logged_id", currentUser.getUid());
+                                startActivity(intent);
 
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // If sign in fails, display a message to the user.
+                                tries++;
+                                Toast.makeText(Login.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                            }
+                        }else {
+                            Toast.makeText(Login.this, "Authentication failed.\nWe advise you to reset your password", Toast.LENGTH_SHORT).show();
                         }
-
-                        // ...
                     }
                 });
     }

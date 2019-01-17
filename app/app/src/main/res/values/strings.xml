@@ -27,13 +27,17 @@
     <string name="articles">Articles</string>
     <string name="checkout">Checkout</string>
     <string name="ordered">Ordered</string>
-    <string name="textView_checkout_p2_info">We\'ve got your order. Your Items will be ready-delivered within 3-7 minutes</string>
+    <string name="textView_checkout_p2_info">We\'ve got your order. Your Items will be ready–delivered within 3-7 minutes</string>
     <string name="continue_shopping">Continue Shopping</string>
     <string name="textView_checkout_info">Enter your password to confirm your order</string>
     <string name="confirm_oder">Confirm Oder</string>
     <string name="my_basket">My Basket</string>
     <string name="send_my_order">Send My Order</string>
     <string name="username">Username</string>
+    <string name="change_your_password">Change your Password</string>
+    <string name="cancel">Cancel</string>
+    <string name="change_PWD_info">We will mail you a link after you provide a valid email and click the send button. Please click on that link to reset your password.</string>
+    <string name="send_email">Send Email</string>
 
     <string-array name="roles">
         <item>Select role</item>

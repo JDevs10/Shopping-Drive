@@ -16,7 +16,7 @@
         android:layout_marginRight="18dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="16dp"
-        android:text="Change your Password"
+        android:text="@string/change_your_password"
         android:textColor="@color/color_dark"
         android:textSize="36sp"
         app:fontFamily="cursive"
@@ -38,42 +38,9 @@
         android:inputType="textEmailAddress"
         android:textColor="@color/color_dark"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_change_pwd_changePWD_title" />
-
-    <EditText
-        android:id="@+id/editText_change_pwd_pwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textColor="@color/color_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_email" />
-
-    <EditText
-        android:id="@+id/editText_change_pwd_cPWD"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        android:textColor="@color/color_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_pwd" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_change_PWD_info" />
 
     <Button
         android:id="@+id/button_change_pwd_rest"
@@ -84,14 +51,12 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="56dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="104dp"
         android:background="@drawable/round_edge_button"
-        android:text="Rest"
+        android:text="@string/send_email"
         android:textColor="@color/color_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_change_pwd_cancel"
-        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_cPWD" />
+        app:layout_constraintStart_toEndOf="@+id/button_change_pwd_cancel" />
 
     <Button
         android:id="@+id/button_change_pwd_cancel"
@@ -100,11 +65,26 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="53dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="104dp"
         android:background="@drawable/round_edge_button"
-        android:text="Cancel"
+        android:text="@string/cancel"
         android:textColor="@color/color_dark"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_change_PWD_info"
+        android:layout_width="324dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:text="@string/change_PWD_info"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_change_pwd_cPWD" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_change_pwd_changePWD_title" />
 </android.support.constraint.ConstraintLayout>
