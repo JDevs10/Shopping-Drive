@@ -1,6 +1,7 @@
 package com.example.j_lds.shoppingdrive.object_class;
 
 
+import java.util.ArrayList;
 
 public class User {
     private String firstname;
@@ -10,6 +11,9 @@ public class User {
     private String pwd;
     private String address;
     private String role;
+    private String companyName;
+    private String companyLogo;
+    private ArrayList<Article> userArticles;
 
     public User() {
     }
@@ -70,5 +74,28 @@ public class User {
         this.role = role;
     }
 
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    public String getCompanyLogo() {
+        return companyLogo;
+    }
+
+    public void setCompanyLogo(String companyLogo) {
+        this.companyLogo = companyLogo;
+    }
+
+    public ArrayList<Article> getUserArticles(){
+        return userArticles;
+    }
+
+    public void setUserArticles(ArrayList<Article> articles){
+        this.userArticles = articles;
+    }
 
 }

@@ -38,6 +38,7 @@
     <string name="cancel">Cancel</string>
     <string name="change_PWD_info">We will mail you a link after you provide a valid email and click the send button. Please click on that link to reset your password.</string>
     <string name="send_email">Send Email</string>
+    <string name="image">Image : ......</string>
 
     <string-array name="roles">
         <item>Select role</item>

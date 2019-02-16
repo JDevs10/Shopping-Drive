@@ -31,7 +31,7 @@
         android:layout_marginLeft="39dp"
         android:layout_marginRight="68dp"
         android:layout_marginStart="39dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/firstname"
         android:inputType="textPersonName"
@@ -122,6 +122,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_user_regist_pwd" />
+
+    <EditText
+        android:id="@+id/editText_companyName"
+        android:layout_width="215dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Company Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
 
     <Button
         android:id="@+id/button_next"

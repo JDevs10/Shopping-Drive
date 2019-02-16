@@ -31,7 +31,7 @@
         android:layout_marginLeft="53dp"
         android:layout_marginRight="54dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/street_address"
         android:inputType="textPersonName"
@@ -47,7 +47,7 @@
         android:layout_marginLeft="53dp"
         android:layout_marginRight="54dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/city"
         android:inputType="textPersonName"
@@ -63,7 +63,7 @@
         android:layout_marginLeft="53dp"
         android:layout_marginRight="54dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country_code"
         android:inputType="textPersonName"
@@ -79,7 +79,7 @@
         android:layout_marginLeft="53dp"
         android:layout_marginRight="54dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country"
         android:inputType="textPersonName"
@@ -96,13 +96,11 @@
         android:layout_marginLeft="35dp"
         android:layout_marginRight="56dp"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="55dp"
         android:background="@drawable/round_edge_button"
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_back_regist1"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+        app:layout_constraintStart_toEndOf="@+id/button_back_regist1" />
 
     <Button
         android:id="@+id/button_back_regist1"
@@ -111,12 +109,10 @@
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="53dp"
         android:layout_marginStart="53dp"
-        android:layout_marginTop="55dp"
         android:background="@drawable/round_edge_button"
         android:text="@string/back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
         android:id="@+id/spinner_user_role"
@@ -126,10 +122,37 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+
+    <Button
+        android:id="@+id/button_getImage"
+        android:layout_width="80dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="10dp"
+        android:text="import"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_user_role" />
+
+    <TextView
+        android:id="@+id/textView_image"
+        android:layout_width="215dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="18dp"
+        android:layout_marginEnd="9dp"
+        android:layout_marginLeft="56dp"
+        android:layout_marginRight="9dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/image"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_getImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_user_role" />
 
 
 </android.support.constraint.ConstraintLayout>

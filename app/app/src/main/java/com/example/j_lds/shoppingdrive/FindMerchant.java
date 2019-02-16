@@ -2,17 +2,28 @@ package com.example.j_lds.shoppingdrive;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.object_class.Merchant;
 import com.example.j_lds.shoppingdrive.object_class.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class FindMerchant extends AppCompatActivity {
     private RecyclerView recyclerView_findMerchant;
@@ -22,6 +33,9 @@ public class FindMerchant extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private DatabaseReference mdatabaseReference;
+
+    private ArrayList<Merchant> merchants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,15 +56,18 @@ public class FindMerchant extends AppCompatActivity {
             }
         });
 
+        mAuth = FirebaseAuth.getInstance();
+
         recyclerView_findMerchant = (RecyclerView)findViewById(R.id.recyclerView_findMerchant);
         recyclerView_findMerchant.setHasFixedSize(true);
         recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(this));
 
-        adapter = new FindMerchantAdapter();
+        merchants = new ArrayList<Merchant>();
+        getMerchantDbData();
 
+        adapter = new FindMerchantAdapter(merchants);
         recyclerView_findMerchant.setAdapter(adapter);
 
-        mAuth = FirebaseAuth.getInstance();
     }
 
     //When initializing your Activity, check to see if the user is currently signed in.
@@ -69,7 +86,34 @@ public class FindMerchant extends AppCompatActivity {
     }
 
     public void getMerchantDbData(){
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user");
+        mdatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        User user = ds.getValue(User.class);
+                        //Log.d("Firebase : ", user.getRole());
 
+                        if (user.getRole().equals("Merchant")) {
+                            Merchant merchant = new Merchant();
+                            merchant.setId(ds.getKey());
+                            merchant.setCompanyName(user.getCompanyName());
+                            merchant.setCompanyLogo(user.getCompanyLogo());
+
+                            Log.d("Merchant id key : ", "||=> "+merchant.getId());
+                            merchants.add(merchant);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getBaseContext(), "ERROR : "+databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     public void viewUserBasket_from_FindMerchant(View view){
