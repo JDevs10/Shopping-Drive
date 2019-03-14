@@ -76,13 +76,9 @@ public class DetailArticle extends AppCompatActivity {
         mRecycleView.setHasFixedSize(true);
         mRecycleView.setLayoutManager(new LinearLayoutManager(this));
 
-        //////////////////// need to be checked
         articleBasket = new ArrayList<Article>();
-
-
         mDetailArticleAdapter = new DetailArticleAdapter(articleBasket);
         mRecycleView.setAdapter(mDetailArticleAdapter);
-        //////////////////// end of need to be checked
 
         back = (Button)findViewById(R.id.button_back_from_detail_article_to_find_merchant_articles);
         back.setOnClickListener(new View.OnClickListener() {
@@ -231,6 +227,7 @@ public class DetailArticle extends AppCompatActivity {
     public void viewUserBasket_from_DetailArticle(View view){
         Intent intent= new Intent(DetailArticle.this, UserBasket.class);
         intent.putExtra("where_the_user_was", DetailArticle.class.getSimpleName());
+        intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }
 

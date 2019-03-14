@@ -10,8 +10,8 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycleView_basket_myBasketList"
         android:layout_width="match_parent"
-        android:layout_height="370dp"
-        android:layout_marginTop="15dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_sendMyOrder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_basket_myBasket" />

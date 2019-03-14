@@ -112,7 +112,6 @@ public class FindMerchantArticles extends AppCompatActivity {
 
     public void back_from_merchantArticles_to_merchantList(View view){
         Toast.makeText(getBaseContext(), "getting articles", Toast.LENGTH_LONG).show();
-
         Intent intent = new Intent(FindMerchantArticles.this, FindMerchant.class);
         startActivity(intent);
     }
@@ -120,14 +119,8 @@ public class FindMerchantArticles extends AppCompatActivity {
     public void viewUserBasket_from_FindMerchantArticles(View view){
         Intent intent= new Intent(FindMerchantArticles.this, UserBasket.class);
         intent.putExtra("where_the_user_was", FindMerchantArticles.class.getSimpleName());
+        intent.putExtra("SelectedMerchantUid", selectedMerchantUid);
         startActivity(intent);
     }
-
-//    public void viewArticle(int item){
-//        Intent intent = new Intent(FindMerchantArticles.this, DetailArticle.class);
-//        startActivity(intent);
-//
-//        Log.d("Article Look : ", "view this article : "+item);
-//    }
 
 }

@@ -116,24 +116,18 @@ public class FindMerchant extends AppCompatActivity {
             }
         });
     }
-
+/*  Maybe set a user client profile to replace the basket in FindMerchant activity && ui
     public void viewUserBasket_from_FindMerchant(View view){
         Intent intent= new Intent(FindMerchant.this, UserBasket.class);
         intent.putExtra("where_the_user_was", FindMerchant.class.getSimpleName());
         startActivity(intent);
     }
+    */
 
     private void back(){
         Toast.makeText(getBaseContext(), "Login", Toast.LENGTH_LONG).show();
 
         Intent intent= new Intent(FindMerchant.this, Login.class);
-        startActivity(intent);
-    }
-
-    public void viewMerchantArticles(){
-        Toast.makeText(getBaseContext(), "getting articles", Toast.LENGTH_LONG).show();
-
-        Intent intent= new Intent(FindMerchant.this, FindMerchantArticles.class);
         startActivity(intent);
     }
 }
