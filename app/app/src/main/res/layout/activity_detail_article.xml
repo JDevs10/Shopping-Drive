@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView_detail-article"
+        android:id="@+id/imageView_detail_article"
         android:layout_width="275dp"
         android:layout_height="200dp"
         android:layout_marginEnd="22dp"
@@ -35,7 +35,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <TextView
-        android:id="@+id/textView_detail-article-name"
+        android:id="@+id/textView_detail_article_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="23dp"
@@ -46,10 +46,10 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_detail-article" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_detail_article" />
 
     <TextView
-        android:id="@+id/textView_detail-article-price"
+        android:id="@+id/textView_detail_article_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="22dp"
@@ -59,7 +59,7 @@
         android:textColor="@color/color_dark"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView_detail-article" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_detail_article" />
 
     <Button
         android:id="@+id/button_detail-article-addToBasket"
@@ -76,7 +76,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_detail-article-name" />
+        app:layout_constraintTop_toBottomOf="@+id/textView_detail_article_name" />
 
     <TextView
         android:id="@+id/textView_detail_article_description"

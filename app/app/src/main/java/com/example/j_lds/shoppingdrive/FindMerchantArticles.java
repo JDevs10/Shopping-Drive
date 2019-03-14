@@ -60,7 +60,7 @@ public class FindMerchantArticles extends AppCompatActivity {
         articleList = new ArrayList<Article>();
         getMerchantArticleDbData();
 
-        adapter = new FindMerchantArticlesAdapter(articleList);
+        adapter = new FindMerchantArticlesAdapter(selectedMerchantUid, articleList);
         recyclerView_findMerchantAticles.setAdapter(adapter);
     }
 
@@ -79,7 +79,6 @@ public class FindMerchantArticles extends AppCompatActivity {
         }
     }
 
-//    this needs to be checked !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public void getMerchantArticleDbData(){
         mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/"+selectedMerchantUid+"/articles");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {

@@ -9,41 +9,39 @@ import android.widget.TextView;
 
 import android.content.Context;
 
+import com.example.j_lds.shoppingdrive.object_class.Article;
+
+import java.util.ArrayList;
+
 public class DetailArticleAdapter extends RecyclerView.Adapter<DetailArticleAdapter.ViewHolder>{
 
-    private Context context;
-    private final String[] names;
-    private final double[] prices;
+    private ArrayList<Article> articleBasket;
+    private Context mContext;
     View view;
 
-    public DetailArticleAdapter(Context context, String[] names, double[] prices) {
-        this.context = context;
-        this.names = names;
-        this.prices = prices;
+    public DetailArticleAdapter(ArrayList<Article> articleBasket) {
+        this.articleBasket = articleBasket;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 //        return null;
+        mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.custom_basket_articles,parent,false);
         return new ViewHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DetailArticleAdapter.ViewHolder holder, int position) {
-
-        String listItem_NAMES = names[position];
-        double listItem_PRICES = prices[position];
-
-        holder.article_name.setText(listItem_NAMES);
-        holder.article_price.setText(listItem_PRICES+" €");
+    public void onBindViewHolder(@NonNull DetailArticleAdapter.ViewHolder holder, final int position) {
+        holder.article_name.setText(articleBasket.get(position).getName());
+        holder.article_price.setText(articleBasket.get(position).getPrice()+" €");
     }
 
     @Override
     public int getItemCount() {
-        return names.length;
+        return articleBasket.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2018-12-24" view-index="0" gantt-divider-location="576" resource-divider-location="300" version="2.8.9" locale="en_GB">
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2019-02-18" view-index="0" gantt-divider-location="576" resource-divider-location="300" version="2.8.9" locale="en_GB">
     <description/>
     <view zooming-state="default:7" id="gantt-chart">
         <field id="tpd3" name="Name" width="296" order="0"/>
@@ -35,14 +35,14 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
-        <task id="223" name="Shopping Drive" color="#00cccc" meeting="false" start="2018-11-19" duration="77" complete="60" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true">
+        <task id="223" name="Shopping Drive" color="#00cccc" meeting="false" start="2018-11-19" duration="110" complete="68" thirdDate="2018-11-01" thirdDate-constraint="0" expand="true">
             <task id="0" name="Preparation du projet" color="#000000" meeting="false" start="2018-11-19" duration="5" complete="100" thirdDate="2018-11-19" thirdDate-constraint="0" expand="true" cost-manual-value="685.0" cost-calculated="false">
                 <depend id="150" type="2" difference="0" hardness="Strong"/>
                 <depend id="158" type="2" difference="0" hardness="Strong"/>
                 <depend id="176" type="2" difference="0" hardness="Strong"/>
                 <depend id="207" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="149" name="Partie Client" color="#00ff00" meeting="false" start="2018-11-26" duration="72" complete="81" thirdDate="2018-11-26" thirdDate-constraint="0" expand="true">
+            <task id="149" name="Partie Client" color="#00ff00" meeting="false" start="2018-11-26" duration="105" complete="88" thirdDate="2018-11-26" thirdDate-constraint="0" expand="true">
                 <task id="150" name="F.E. login/enregister" color="#8cb6ce" meeting="false" start="2018-11-26" duration="5" complete="100" thirdDate="2018-11-26" thirdDate-constraint="0" expand="true" cost-manual-value="300.0" cost-calculated="false">
                     <depend id="151" type="2" difference="0" hardness="Strong"/>
                 </task>
@@ -62,41 +62,37 @@
                 <task id="155" name="test/imprevu F.E." color="#8cb6ce" meeting="false" start="2018-12-19" duration="4" complete="90" thirdDate="2018-12-20" thirdDate-constraint="0" expand="true" cost-manual-value="300.0" cost-calculated="false">
                     <depend id="127" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="225" name="B.E enregistrer un User" color="#8cb6ce" meeting="false" start="2019-01-21" duration="5" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
+                <task id="225" name="B.E enregistrer un User" color="#8cb6ce" meeting="false" start="2019-03-21" duration="5" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
                     <depend id="227" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="227" name="B.E Identifier un User" color="#8cb6ce" meeting="false" start="2019-01-28" duration="2" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
+                <task id="227" name="B.E Identifier un User" color="#8cb6ce" meeting="false" start="2019-03-28" duration="2" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
                     <depend id="228" type="2" difference="0" hardness="Strong"/>
                     <depend id="231" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="228" name="B.E recuperer un Vender" color="#8cb6ce" meeting="false" start="2019-01-30" duration="3" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
+                <task id="228" name="B.E recuperer un Vender" color="#8cb6ce" meeting="false" start="2019-04-01" duration="3" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="150.0" cost-calculated="false">
                     <depend id="229" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="231" name="B.E recuperer une image" color="#8cb6ce" meeting="false" start="2019-01-30" duration="2" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="200.0" cost-calculated="false">
+                <task id="231" name="B.E recuperer une image" color="#8cb6ce" meeting="false" start="2019-04-01" duration="2" complete="100" thirdDate="2018-12-24" thirdDate-constraint="0" expand="true" cost-manual-value="200.0" cost-calculated="false">
                     <depend id="229" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="229" name="B.E recuperer tout les Venders" color="#8cb6ce" meeting="false" start="2019-02-04" duration="5" complete="100" thirdDate="2018-12-27" thirdDate-constraint="0" expand="true" cost-manual-value="325.0" cost-calculated="false">
+                <task id="229" name="B.E recuperer tout les Venders" color="#8cb6ce" meeting="false" start="2019-04-04" duration="5" complete="100" thirdDate="2018-12-27" thirdDate-constraint="0" expand="true" cost-manual-value="325.0" cost-calculated="false">
                     <depend id="241" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="241" name="B.E recuperer tout les articles du Vender" color="#8cb6ce" meeting="false" start="2019-02-11" duration="7" complete="90" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="350.0" cost-calculated="false">
-                    <depend id="244" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="244" name="B.E recupererl'info sur l'article selectione" color="#8cb6ce" meeting="false" start="2019-02-20" duration="5" complete="20" thirdDate="2019-02-20" thirdDate-constraint="0" expand="true" cost-manual-value="340.0" cost-calculated="false">
-                    <depend id="245" type="2" difference="0" hardness="Strong"/>
-                </task>
-                <task id="245" name="Envoie de la commande" color="#8cb6ce" meeting="false" start="2019-02-27" duration="5" complete="0" thirdDate="2018-12-17" thirdDate-constraint="0" expand="true"/>
+                <task id="241" name="B.E recuperer tout les articles du Vender" color="#8cb6ce" meeting="false" start="2019-04-11" duration="7" complete="100" thirdDate="2019-02-11" thirdDate-constraint="0" expand="true" cost-manual-value="350.0" cost-calculated="false"/>
+                <task id="245" name="Envoie de la commande" color="#8cb6ce" meeting="false" start="2018-12-19" duration="5" complete="0" thirdDate="2018-12-17" thirdDate-constraint="0" expand="true"/>
             </task>
-            <task id="156" name="Partie Vender" color="#0000ff" meeting="false" start="2018-11-26" duration="21" complete="39" thirdDate="2018-11-26" thirdDate-constraint="0" expand="true">
+            <task id="156" name="Partie Vender" color="#0000ff" meeting="false" start="2018-11-26" duration="70" complete="59" thirdDate="2018-11-26" thirdDate-constraint="0" expand="true">
                 <task id="158" name="F.E. ajouter des produits" color="#8cb6ce" meeting="false" start="2018-11-26" duration="6" complete="100" thirdDate="2018-11-16" thirdDate-constraint="0" expand="true" cost-manual-value="300.0" cost-calculated="false">
                     <depend id="159" type="2" difference="0" hardness="Strong"/>
                 </task>
                 <task id="159" name="F.E. recevoir des commandes" color="#8cb6ce" meeting="false" start="2018-12-04" duration="6" complete="17" thirdDate="2018-11-19" thirdDate-constraint="0" expand="true" cost-manual-value="250.0" cost-calculated="false">
                     <depend id="160" type="2" difference="0" hardness="Strong"/>
                 </task>
-                <task id="160" name="F.E. envoyer des information au livreur" color="#8cb6ce" meeting="false" start="2018-12-12" duration="6" complete="0" thirdDate="2018-11-19" thirdDate-constraint="0" expand="true" cost-manual-value="400.0" cost-calculated="false">
+                <task id="160" name="F.E. envoyer des information au livreur" color="#8cb6ce" meeting="false" start="2019-02-20" duration="5" complete="75" thirdDate="2018-11-19" thirdDate-constraint="0" expand="false" cost-manual-value="400.0" cost-calculated="false">
                     <depend id="168" type="2" difference="0" hardness="Strong"/>
+                    <task id="249" name="B.E recupererl'info sur l'article selectione" color="#8cb6ce" meeting="false" start="2019-02-20" duration="5" complete="75" thirdDate="2019-02-20" thirdDate-constraint="0" expand="true" cost-manual-value="340.0" cost-calculated="false"/>
                 </task>
-                <task id="168" name="test/correction des bugs F.E." color="#8cb6ce" meeting="false" start="2018-12-20" duration="3" complete="40" thirdDate="2018-12-10" thirdDate-constraint="0" expand="true" cost-manual-value="500.0" cost-calculated="false">
+                <task id="168" name="test/correction des bugs F.E." color="#8cb6ce" meeting="false" start="2019-02-27" duration="3" complete="40" thirdDate="2018-12-10" thirdDate-constraint="0" expand="true" cost-manual-value="500.0" cost-calculated="false">
                     <depend id="127" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
@@ -139,13 +135,13 @@
                     <depend id="127" type="2" difference="0" hardness="Strong"/>
                 </task>
             </task>
-            <task id="127" name="regrouper les partis F.E." color="#ff00ff" meeting="false" start="2019-01-02" duration="4" complete="0" thirdDate="2019-01-02" thirdDate-constraint="1" expand="true" cost-manual-value="740.0" cost-calculated="false">
+            <task id="127" name="regrouper les partis F.E." color="#ff00ff" meeting="false" start="2019-03-04" duration="4" complete="0" thirdDate="2019-01-02" thirdDate-constraint="1" expand="true" cost-manual-value="740.0" cost-calculated="false">
                 <depend id="131" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="131" name="test/correction des bugs" color="#ff00ff" meeting="false" start="2019-01-08" duration="4" complete="0" thirdDate="2018-12-10" thirdDate-constraint="0" expand="true" cost-manual-value="750.0" cost-calculated="false">
+            <task id="131" name="test/correction des bugs" color="#ff00ff" meeting="false" start="2019-03-08" duration="4" complete="0" thirdDate="2018-12-10" thirdDate-constraint="0" expand="true" cost-manual-value="750.0" cost-calculated="false">
                 <depend id="67" type="2" difference="0" hardness="Strong"/>
             </task>
-            <task id="67" name="Base De Donnee" color="#666666" meeting="false" start="2019-01-14" duration="5" complete="65" thirdDate="2018-11-16" thirdDate-constraint="0" expand="true" cost-manual-value="600.0" cost-calculated="false">
+            <task id="67" name="Base De Donnee" color="#666666" meeting="false" start="2019-03-14" duration="5" complete="65" thirdDate="2018-11-16" thirdDate-constraint="0" expand="true" cost-manual-value="600.0" cost-calculated="false">
                 <depend id="225" type="2" difference="0" hardness="Strong"/>
             </task>
         </task>

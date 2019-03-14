@@ -17,11 +17,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static android.support.v4.content.ContextCompat.startActivity;
 
 public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMerchantArticlesAdapter.ViewHolder>{
 
     private ArrayList<Article> articles;
+    private String merchantUid;
     private Context mContext;
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -40,7 +40,8 @@ public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMercha
         }
     }
 
-    public FindMerchantArticlesAdapter(ArrayList<Article> articles) {
+    public FindMerchantArticlesAdapter(String merchantUid, ArrayList<Article> articles) {
+        this.merchantUid = merchantUid;
         this.articles = articles;
     }
 
@@ -58,19 +59,14 @@ public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMercha
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         Picasso.get().load(articles.get(position).getImage()).into(holder.iv_articles);
         holder.articles_name.setText(articles.get(position).getName());
-        holder.articles_price.setText(articles.get(position).getPrice()+"");
+        holder.articles_price.setText(articles.get(position).getPrice()+" €");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("Article Selected : ", "\n" +
-                        "The Position ==> "+position+"\n" +
-                        "Article name ==> "+articles.get(position).getName()+"\n" +
-                        "Article price ==> "+articles.get(position).getPrice()+"\n" +
-                        "Article price ==> "+articles.get(position).getImage());
-
-                Intent intent= new Intent(mContext, FindMerchantArticles.class);
-                intent.putExtra("SelectedMerchantUid", articles.get(position).getId());
+                Intent intent= new Intent(mContext, DetailArticle.class);
+                intent.putExtra("SelectedMerchantUid", merchantUid);
+                intent.putExtra("SelectedArticleUid", articles.get(position).getId());
                 ((Activity) mContext).startActivityForResult(intent, 1);
             }
         });

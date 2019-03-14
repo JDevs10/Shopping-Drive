@@ -1,30 +1,52 @@
 package com.example.j_lds.shoppingdrive;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 
 public class DetailArticle extends AppCompatActivity {
 
     private TextView showBasketInfo;
 
-    private Button showBasketButton, back;
+    private Button addArticleToBasket, showBasketButton, back;
 
     private RecyclerView mRecycleView;
     private DetailArticleAdapter mDetailArticleAdapter;
 
-    private String[] article_names = {"Article 1", "Article 2", "Article 3", "Article 4", "Article 5",
-            "Article 6", "Article 7", "Article 8", "Article 9", "Article 10"};
-    private double[] article_prices = {2.30, 4.50, 1.20, 3.50, 5.60, 7.99, 9.39, 6.49, 8.99, 10.01};
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private DatabaseReference mdatabaseReference;
 
-    boolean btn_down = true;
+    private ArrayList<Article> articleBasket;
+    private String selectedMerchanteUid = "";
+    private String selectedArticleUid = "";
+    private Article selectedArticle;
+    private long cpt = 0;
+
+    private boolean btn_down = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +58,15 @@ public class DetailArticle extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        mAuth = FirebaseAuth.getInstance();
+
+        selectedMerchanteUid = getIntent().getExtras().getString("SelectedMerchantUid");
+        selectedArticleUid = getIntent().getExtras().getString("SelectedArticleUid");
+        Log.d("selected Merchant Uid ", "||=> "+selectedMerchanteUid);
+        Log.d("selected Article Uid ", "||=> "+selectedArticleUid);
+
+        selectedArticle = new Article();
+        getArticleDbData();
 
 
         //set recycle view / get my activity_user_basket "if I have"..............................................
@@ -45,8 +76,13 @@ public class DetailArticle extends AppCompatActivity {
         mRecycleView.setHasFixedSize(true);
         mRecycleView.setLayoutManager(new LinearLayoutManager(this));
 
-        mDetailArticleAdapter = new DetailArticleAdapter(this, article_names, article_prices);
+        //////////////////// need to be checked
+        articleBasket = new ArrayList<Article>();
 
+
+        mDetailArticleAdapter = new DetailArticleAdapter(articleBasket);
+        mRecycleView.setAdapter(mDetailArticleAdapter);
+        //////////////////// end of need to be checked
 
         back = (Button)findViewById(R.id.button_back_from_detail_article_to_find_merchant_articles);
         back.setOnClickListener(new View.OnClickListener() {
@@ -63,17 +99,127 @@ public class DetailArticle extends AppCompatActivity {
             }
         });
 
+        addArticleToBasket = (Button)findViewById(R.id.button_detail_article_addToBasket);
+        addArticleToBasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                addArticleToBasket(selectedArticle);
+            }
+        });
+    }
+
+    //When initializing your Activity, check to see if the user is currently signed in.
+    @Override
+    public void onStart() {
+        super.onStart();
+        currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            Toast.makeText(this, "Welcome "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Please login to continue\nor sign up ", Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(this, Login.class);
+            startActivity(intent);
+        }
+    }
+
+    // Get the selected Merchant articles from db
+    public void getArticleDbData(){
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/" + selectedMerchanteUid + "/articles");
+        mdatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if (ds.getKey().equals(selectedArticleUid)) {
+                            selectedArticle = ds.getValue(Article.class);
+                            selectedArticle.setId(ds.getKey());
+                            Log.d("Article id : ", "||=> " + selectedArticle.getId());
+                            Log.d("Article name : ", "||=> " + selectedArticle.getName());
+                            Log.d("Article image : ", "||=> " + selectedArticle.getImage());
+                            Log.d("Article description : ", "||=> " + selectedArticle.getDescription());
+                            showArticle(selectedArticle);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getBaseContext(), "ERROR 'Get Article' :\n" + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    //Show the selected articles from the Merchant article list
+    private void showArticle(Article article){
+        ImageView articleImage = findViewById(R.id.imageView_detail_article);
+        TextView articleName = findViewById(R.id.textView_detail_article_name);
+        TextView articlePrice = findViewById(R.id.textView_detail_article_price);
+        TextView articleDescription = findViewById(R.id.textView_detail_article_description);
+
+        Picasso.get().load(article.getImage()).into(articleImage);
+        articleName.setText(article.getName());
+        articlePrice.setText(article.getPrice()+" €");
+        articleDescription.setText(article.getDescription());
+
+        Log.d("Showing Article : ", article.getId()+"\nLoaded !");
+        Toast.makeText(getBaseContext(),"Article : "+article.getId()+"\nLoaded !",Toast.LENGTH_LONG).show();
+    }
+
+    //Add an article to the current user basket
+    private void addArticleToBasket(Article article){
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
+        mdatabaseReference.child("user/" + selectedMerchanteUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
+
+        Toast.makeText(this, "Article "+article.getName()+" added in basket", Toast.LENGTH_SHORT).show();
+    }
+
+    private void getCurrentUserArticleBasketDbData(){
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/"+selectedMerchanteUid+"/basket");
+        mdatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                articleBasket.clear();
+                if(dataSnapshot.exists()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                        if(dataSnapshot.exists()){
+                            Article article = ds.getValue(Article.class);
+                            article.setId(ds.getKey());
+                            Log.d("Basket Article id : ", "||=> "+article.getId());
+                            Log.d("Basket Article name : ", "||=> "+article.getName());
+                            Log.d("Basket Article image : ", "||=> "+article.getImage());
+                            Log.d("Basket Article info : ", "||=> "+article.getDescription());
+
+                            articleBasket.add(article);
+                            mDetailArticleAdapter.notifyDataSetChanged();
+                        }else{
+                            Log.d("Article Error : ", "Can't find articles !!!");
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getBaseContext(), "ERROR 'Get Article' :\n"+databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     public void dropDownBasketList(){
         if (btn_down){
-            Toast.makeText(getBaseContext(),"Show my activity_user_basket",Toast.LENGTH_LONG).show();
+            Toast.makeText(getBaseContext(),"Show User basket",Toast.LENGTH_LONG).show();
+            getCurrentUserArticleBasketDbData();
 
-            showBasketInfo.setText("The activity_user_basket has "+article_names.length+" articles");
+            if(articleBasket.size() > 0){
+                showBasketInfo.setText("The basket have "+articleBasket.size()+" articles");
+            }else{
+                showBasketInfo.setText("The basket is empty, 0 articles");
+            }
+
             mRecycleView.setVisibility(View.VISIBLE);
             showBasketButton.setRotation(180);
-            mRecycleView.setAdapter(mDetailArticleAdapter);
             btn_down = false;
         }else{
             mRecycleView.setVisibility(View.GONE);
@@ -90,6 +236,7 @@ public class DetailArticle extends AppCompatActivity {
 
     public void back_from_DetailArticle_to_merchantArticles(){
         Intent intent= new Intent(DetailArticle.this, FindMerchantArticles.class);
+        intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }
 }
