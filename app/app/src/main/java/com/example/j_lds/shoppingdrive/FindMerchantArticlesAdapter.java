@@ -1,63 +1,84 @@
 package com.example.j_lds.shoppingdrive;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.support.annotation.RequiresApi;
+import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class FindMerchantArticlesAdapter extends BaseAdapter{
+import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.squareup.picasso.Picasso;
 
-    private Context context;
-    private final int[] images;
-    private final String[] names;
-    private final double[] prices;
-    View view;
+import java.util.ArrayList;
 
-    FindMerchantArticlesAdapter(Context context, int[] images, String[] names, double[] prices) {
-        this.context = context;
-        this.images = images;
-        this.names = names;
-        this.prices = prices;
-    }
+import static android.support.v4.content.ContextCompat.startActivity;
 
-    @Override
-    public int getCount() {
-        return images.length;
-    }
+public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMerchantArticlesAdapter.ViewHolder>{
 
-    @Override
-    public Object getItem(int position) {
-        return position;
-    }
+    private ArrayList<Article> articles;
+    private Context mContext;
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        ImageView iv_articles;
+        TextView articles_name;
+        TextView articles_price;
+        Picasso picasso;
 
-        if (convertView == null){
-            view = new View(context);
-            view = layoutInflater.inflate(R.layout.custom_find_merchant_articles, null);
-            ImageView article_image = (ImageView) view.findViewById(R.id.article_list_image);
-            TextView article_name = (TextView) view.findViewById(R.id.article_list_name);
-            TextView article_price = (TextView) view.findViewById(R.id.article_list_price);
+        public ViewHolder(View itemView) {
+            super(itemView);
 
-            article_image.setImageResource(images[position]);
-            article_name.setText(names[position]);
-            article_price.setText(prices[position]+" €");
-
+            iv_articles = (ImageView)itemView.findViewById(R.id.article_list_image);
+            articles_name = (TextView)itemView.findViewById(R.id.article_list_name);
+            articles_price = (TextView)itemView.findViewById(R.id.article_list_price);
         }
-        return view;
+    }
+
+    public FindMerchantArticlesAdapter(ArrayList<Article> articles) {
+        this.articles = articles;
+    }
+
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//        return null;
+        mContext = parent.getContext();
+        View v = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.custom_find_merchant_articles,parent,false);
+        return new FindMerchantArticlesAdapter.ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
+        Picasso.get().load(articles.get(position).getImage()).into(holder.iv_articles);
+        holder.articles_name.setText(articles.get(position).getName());
+        holder.articles_price.setText(articles.get(position).getPrice()+"");
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Article Selected : ", "\n" +
+                        "The Position ==> "+position+"\n" +
+                        "Article name ==> "+articles.get(position).getName()+"\n" +
+                        "Article price ==> "+articles.get(position).getPrice()+"\n" +
+                        "Article price ==> "+articles.get(position).getImage());
+
+                Intent intent= new Intent(mContext, FindMerchantArticles.class);
+                intent.putExtra("SelectedMerchantUid", articles.get(position).getId());
+                ((Activity) mContext).startActivityForResult(intent, 1);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return articles.size();
     }
 
 }

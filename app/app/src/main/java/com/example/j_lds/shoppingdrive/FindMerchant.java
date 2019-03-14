@@ -12,7 +12,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.example.j_lds.shoppingdrive.object_class.Merchant;
 import com.example.j_lds.shoppingdrive.object_class.User;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,7 +59,9 @@ public class FindMerchant extends AppCompatActivity {
 
         recyclerView_findMerchant = (RecyclerView)findViewById(R.id.recyclerView_findMerchant);
         recyclerView_findMerchant.setHasFixedSize(true);
-        recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(this));
+         recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(this));
+//        layoutManager = new GridLayoutManager(this, 2);
+//        recyclerView_findMerchant.setLayoutManager(layoutManager);
 
         merchants = new ArrayList<Merchant>();
         getMerchantDbData();
@@ -129,7 +130,7 @@ public class FindMerchant extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void viewMerchantArticles(View view){
+    public void viewMerchantArticles(){
         Toast.makeText(getBaseContext(), "getting articles", Toast.LENGTH_LONG).show();
 
         Intent intent= new Intent(FindMerchant.this, FindMerchantArticles.class);

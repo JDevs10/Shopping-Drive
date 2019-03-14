@@ -3,6 +3,7 @@ package com.example.j_lds.shoppingdrive.object_class;
 
 public class Article {
 
+    private String id;
     private String image; //this will change in the future but it is use for test pruposes
     private String name;
     private double price;
@@ -10,6 +11,10 @@ public class Article {
 
     public Article() {
     }
+
+    public void setId(String id){  this.id = id;}
+
+    public String getId(){ return id;}
 
     public String getImage() {
         return image;

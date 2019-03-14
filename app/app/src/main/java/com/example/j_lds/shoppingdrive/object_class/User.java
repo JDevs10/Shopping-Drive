@@ -90,12 +90,4 @@ public class User {
         this.companyLogo = companyLogo;
     }
 
-    public ArrayList<Article> getUserArticles(){
-        return userArticles;
-    }
-
-    public void setUserArticles(ArrayList<Article> articles){
-        this.userArticles = articles;
-    }
-
 }
