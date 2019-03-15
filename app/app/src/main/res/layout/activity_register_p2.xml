@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     android:background="@color/color_background">
 
+    <EditText
+        android:id="@+id/editText_companyName"
+        android:layout_width="215dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginRight="54dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Company Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+
     <TextView
         android:id="@+id/textView_register"
         android:layout_width="wrap_content"
@@ -114,45 +130,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
-        android:id="@+id/spinner_user_role"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
-
     <Button
         android:id="@+id/button_getImage"
         android:layout_width="80dp"
         android:layout_height="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginTop="10dp"
         android:text="import"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_user_role" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_companyName" />
 
     <TextView
         android:id="@+id/textView_image"
         android:layout_width="215dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="18dp"
         android:layout_marginEnd="9dp"
         android:layout_marginLeft="56dp"
         android:layout_marginRight="9dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:text="@string/image"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/button_getImage"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_user_role" />
+        app:layout_constraintTop_toBottomOf="@+id/editText_companyName" />
 
 
 </android.support.constraint.ConstraintLayout>

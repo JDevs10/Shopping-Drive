@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     android:background="@color/color_background">
 
+    <Spinner
+        android:id="@+id/spinner_user_role"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="68dp"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="68dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
+
     <TextView
         android:id="@+id/textView_register"
         android:layout_width="wrap_content"
@@ -14,7 +27,6 @@
         android:layout_marginLeft="115dp"
         android:layout_marginRight="114dp"
         android:layout_marginStart="115dp"
-        android:layout_marginTop="25dp"
         android:text="@string/registration"
         android:textColor="@android:color/background_dark"
         android:textSize="36sp"
@@ -122,22 +134,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText_user_regist_pwd" />
-
-    <EditText
-        android:id="@+id/editText_companyName"
-        android:layout_width="215dp"
-        android:layout_height="42dp"
-        android:layout_marginEnd="68dp"
-        android:layout_marginLeft="39dp"
-        android:layout_marginRight="68dp"
-        android:layout_marginStart="39dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Company Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_confirm_user_pwd" />
 
     <Button
         android:id="@+id/button_next"
