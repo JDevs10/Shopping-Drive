@@ -60,8 +60,6 @@ public class FindMerchant extends AppCompatActivity {
         recyclerView_findMerchant = (RecyclerView)findViewById(R.id.recyclerView_findMerchant);
         recyclerView_findMerchant.setHasFixedSize(true);
          recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(this));
-//        layoutManager = new GridLayoutManager(this, 2);
-//        recyclerView_findMerchant.setLayoutManager(layoutManager);
 
         merchants = new ArrayList<Merchant>();
         getMerchantDbData();
@@ -87,7 +85,7 @@ public class FindMerchant extends AppCompatActivity {
     }
 
     public void getMerchantDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/merchant");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -125,8 +123,6 @@ public class FindMerchant extends AppCompatActivity {
     */
 
     private void back(){
-        Toast.makeText(getBaseContext(), "Login", Toast.LENGTH_LONG).show();
-
         Intent intent= new Intent(FindMerchant.this, Login.class);
         startActivity(intent);
     }

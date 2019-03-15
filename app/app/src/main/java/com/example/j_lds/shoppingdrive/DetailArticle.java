@@ -121,7 +121,7 @@ public class DetailArticle extends AppCompatActivity {
 
     // Get the selected Merchant articles from db
     public void getArticleDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/" + selectedMerchanteUid + "/articles");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/merchant/" + selectedMerchanteUid + "/articles");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -166,13 +166,13 @@ public class DetailArticle extends AppCompatActivity {
     //Add an article to the current user basket
     private void addArticleToBasket(Article article){
         mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
-        mdatabaseReference.child("user/" + selectedMerchanteUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
+        mdatabaseReference.child("user/client/" + selectedMerchanteUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
 
         Toast.makeText(this, "Article "+article.getName()+" added in basket", Toast.LENGTH_SHORT).show();
     }
 
     private void getCurrentUserArticleBasketDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/"+selectedMerchanteUid+"/basket");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+selectedMerchanteUid+"/basket");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -194,6 +194,11 @@ public class DetailArticle extends AppCompatActivity {
                         }
                     }
                 }
+                if(articleBasket.size() > 0){
+                    showBasketInfo.setText("The basket have "+articleBasket.size()+" articles");
+                }else{
+                    showBasketInfo.setText("The basket is empty, 0 articles");
+                }
             }
 
             @Override
@@ -205,14 +210,7 @@ public class DetailArticle extends AppCompatActivity {
 
     public void dropDownBasketList(){
         if (btn_down){
-            Toast.makeText(getBaseContext(),"Show User basket",Toast.LENGTH_LONG).show();
             getCurrentUserArticleBasketDbData();
-
-            if(articleBasket.size() > 0){
-                showBasketInfo.setText("The basket have "+articleBasket.size()+" articles");
-            }else{
-                showBasketInfo.setText("The basket is empty, 0 articles");
-            }
 
             mRecycleView.setVisibility(View.VISIBLE);
             showBasketButton.setRotation(180);

@@ -95,7 +95,7 @@ public class UserBasket extends AppCompatActivity {
     }
 
     private void getCurrentUserBasketDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/"+selectedMerchanteUid+"/basket");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+selectedMerchanteUid+"/basket");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

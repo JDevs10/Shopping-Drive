@@ -29,8 +29,6 @@ public class FindMerchantArticles extends AppCompatActivity {
     private GridLayoutManager layoutManager;
     private RecyclerView.Adapter adapter;
 
-    private FirebaseAuth mAuth;
-    private FirebaseUser currentUser;
     private DatabaseReference mdatabaseReference;
 
     private ArrayList<Article> articleList;
@@ -45,8 +43,6 @@ public class FindMerchantArticles extends AppCompatActivity {
         getSupportActionBar().hide();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        mAuth = FirebaseAuth.getInstance();
 
         selectedMerchantUid = getIntent().getExtras().getString("SelectedMerchantUid");
         Log.d("selected Merchant Uid ", "||=> "+selectedMerchantUid);
@@ -64,23 +60,8 @@ public class FindMerchantArticles extends AppCompatActivity {
         recyclerView_findMerchantAticles.setAdapter(adapter);
     }
 
-    //When initializing your Activity, check to see if the user is currently signed in.
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            Toast.makeText(this, "Welcome "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(this, "Please login to continue\nor sign up ", Toast.LENGTH_SHORT).show();
-            Intent intent= new Intent(this, Login.class);
-            startActivity(intent);
-        }
-    }
-
     public void getMerchantArticleDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/"+selectedMerchantUid+"/articles");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/merchant/"+selectedMerchantUid+"/articles");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -111,7 +92,6 @@ public class FindMerchantArticles extends AppCompatActivity {
     }
 
     public void back_from_merchantArticles_to_merchantList(View view){
-        Toast.makeText(getBaseContext(), "getting articles", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(FindMerchantArticles.this, FindMerchant.class);
         startActivity(intent);
     }

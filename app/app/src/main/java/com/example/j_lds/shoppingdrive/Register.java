@@ -60,7 +60,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     private String cityAddress;
     private String countryCodeAddress;
     private String countryAddress;
-    private String roleSet;
+    private String roleSet = "";
     private String campanyName;
 
     private UserClient userClient;
@@ -99,6 +99,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         roleSet = parent.getItemAtPosition(position).toString();
+        if (roleSet.equals("Merchant")){
+            campanyName_et.setVisibility(View.VISIBLE);
+        }else{
+            campanyName_et.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -124,6 +129,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         phoneNumber_et = findViewById(R.id.editText_phoneNumber);
         user_regist_pwd_et = findViewById(R.id.editText_user_regist_pwd);
         user_regist_cpwd_et = findViewById(R.id.editText_confirm_user_pwd);
+        campanyName_et = (EditText)findViewById(R.id.editText_companyName);
 
         roles = (Spinner)findViewById(R.id.spinner_user_role);
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.roles, android.R.layout.simple_spinner_item);
@@ -181,6 +187,7 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                             userMerchant.setPhoneNumber(phoneNumber_et.getText().toString());
                             userMerchant.setPwd(user_regist_pwd_et.getText().toString());
                             userMerchant.setRole(roleSet);
+                            userMerchant.setCompanyName(campanyName_et.getText().toString());
 
                             if (!firstName_regis_et.getText().equals("") && !lastName_regis_et.getText().equals("")
                                     && !email_et.getText().equals("") && !phoneNumber_et.getText().equals("") && !user_regist_pwd_et.getText().equals("")) {
@@ -214,7 +221,6 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         cityAddress_et = findViewById(R.id.editText_city_address);
         countryCodeAddress_et = findViewById(R.id.editText_country_code_address);
         countryAddress_et = findViewById(R.id.editText_country_address);
-        campanyName_et = (EditText)findViewById(R.id.editText_companyName);
         imageName_tv = (TextView)findViewById(R.id.textView_image);
 
         btn_getImage = (Button)findViewById(R.id.button_getImage);
@@ -228,11 +234,9 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
         });
 
         if(roleSet.equals("Merchant")){
-            campanyName_et.setVisibility(View.VISIBLE);
             imageName_tv.setVisibility(View.VISIBLE);
             btn_getImage.setVisibility(View.VISIBLE);
         }else {
-            campanyName_et.setVisibility(View.GONE);
             imageName_tv.setVisibility(View.GONE);
             btn_getImage.setVisibility(View.GONE);
         }
@@ -277,13 +281,11 @@ public class Register extends AppCompatActivity implements AdapterView.OnItemSel
                         cityAddress = cityAddress_et.getText().toString().trim();
                         countryCodeAddress = countryCodeAddress_et.getText().toString().trim();
                         countryAddress = countryAddress_et.getText().toString().trim();
-                        campanyName = campanyName_et.getText().toString();
 
                         if (!streetAddress.equals("") && !cityAddress.equals("") &&
                                 !countryCodeAddress.equals("") && !countryAddress.equals("")){
 
                             userMerchant.setAddress(streetAddress+" "+cityAddress+" "+countryCodeAddress+" "+countryAddress);
-                            userMerchant.setCompanyName(campanyName);
 
                             final StorageReference filePath = mStorageRef.child("Merchant_store_image").child(picName);
 
