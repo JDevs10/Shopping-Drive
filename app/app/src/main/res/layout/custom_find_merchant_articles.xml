@@ -5,12 +5,13 @@
     android:layout_width="150dp"
     android:layout_height="225dp"
     android:layout_margin="5dp"
-    android:background="@color/color_transparent"
-    android:onClick="viewArticle">
+    android:onClick="viewArticle"
+    app:cardBackgroundColor="@color/color_white">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/color_white"
         android:orientation="vertical">
 
         <ImageView

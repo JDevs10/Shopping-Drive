@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticles;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.example.j_lds.shoppingdrive.object_class.UserBasketAdapter;
 import com.google.firebase.auth.FirebaseAuth;

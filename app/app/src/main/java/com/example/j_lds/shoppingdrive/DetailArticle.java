@@ -9,12 +9,13 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.adapters.DetailArticleAdapter;
+import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticles;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -176,6 +177,7 @@ public class DetailArticle extends AppCompatActivity {
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 articleBasket.clear();
                 if(dataSnapshot.exists()){
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {

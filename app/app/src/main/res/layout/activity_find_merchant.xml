@@ -11,13 +11,16 @@
         android:id="@+id/textView_findMerchants_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="153dp"
         android:layout_marginLeft="108dp"
+        android:layout_marginRight="153dp"
         android:layout_marginStart="108dp"
         android:layout_marginTop="16dp"
         android:text="@string/merchant"
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button_back_from_find_merchant_to_login"
         app:layout_constraintTop_toTopOf="parent" />
 

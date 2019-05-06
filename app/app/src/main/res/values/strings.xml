@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Shopping Drive</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <string name="delivery_man">Delivery man</string>
     <string name="radiobutton">RadioButton</string>
     <string name="user">User</string>

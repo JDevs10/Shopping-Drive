@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:background="@color/colorPrimary"
-    tools:context=".FindMerchantArticles">
+    tools:context=".adapters.FindMerchantArticles">
 
     <TextView
         android:id="@+id/textView5"
