@@ -1,5 +1,6 @@
 package com.example.j_lds.shoppingdrive;
 
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -64,7 +65,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         getSupportActionBar().setTitle("Stores");
         if (savedInstanceState == null){
             //default fragment when activity is running
-            toolbar.setTitle("Stores");
             navigationView.setCheckedItem(R.id.nav_store);
             getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchant()).commit();
         }
@@ -123,6 +123,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_legalMentions:
                 Toast.makeText(this, "Our Legal Mentions", Toast.LENGTH_SHORT).show();
                 break;
+
         }
 
         drawer.closeDrawer(GravityCompat.START);
