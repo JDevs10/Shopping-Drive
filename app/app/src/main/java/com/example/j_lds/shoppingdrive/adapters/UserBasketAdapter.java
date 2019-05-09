@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.object_class;
+package com.example.j_lds.shoppingdrive.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.j_lds.shoppingdrive.R;
+import com.example.j_lds.shoppingdrive.object_class.Article;
 
 import java.util.ArrayList;
 

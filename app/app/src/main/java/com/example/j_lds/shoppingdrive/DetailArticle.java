@@ -15,7 +15,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.adapters.DetailArticleAdapter;
-import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticles;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -225,14 +224,14 @@ public class DetailArticle extends AppCompatActivity {
     }
 
     public void viewUserBasket_from_DetailArticle(View view){
-        Intent intent= new Intent(DetailArticle.this, UserBasket.class);
+        Intent intent= new Intent(DetailArticle.this, Home.class);
         intent.putExtra("where_the_user_was", DetailArticle.class.getSimpleName());
         intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }
 
     public void back_from_DetailArticle_to_merchantArticles(){
-        Intent intent= new Intent(DetailArticle.this, FindMerchantArticles.class);
+        Intent intent= new Intent(DetailArticle.this, Home.class);
         intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }

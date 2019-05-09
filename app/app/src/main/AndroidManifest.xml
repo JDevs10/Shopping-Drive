@@ -24,11 +24,8 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".Register" />
         <activity android:name=".ChangePWD" />
-        <activity android:name=".FindMerchant" />
-        <activity android:name=".adapters.FindMerchantArticles" />
         <activity android:name=".DetailArticle" />
         <activity android:name=".Checkout" />
-        <activity android:name=".UserBasket" />
     </application>
 
 </manifest>

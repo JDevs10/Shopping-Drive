@@ -33,7 +33,7 @@ public class Checkout extends AppCompatActivity {
         btn_backWhereTheUserWas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                back_to_userBasket();
+                back_to_userHome();
             }
         });
 
@@ -75,14 +75,14 @@ public class Checkout extends AppCompatActivity {
         btn_continue_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(Checkout.this, FindMerchant.class);
+                Intent intent= new Intent(Checkout.this, Home.class);
                 startActivity(intent);
             }
         });
     }
 
-    private void back_to_userBasket(){
-        Intent intent= new Intent(Checkout.this, UserBasket.class);
+    private void back_to_userHome(){
+        Intent intent= new Intent(Checkout.this, Home.class);
         startActivity(intent);
     }
 }

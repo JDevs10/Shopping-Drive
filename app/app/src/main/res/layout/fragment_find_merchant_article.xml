@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Find Merchant Articles..."
-        android:layout_centerInParent="true"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/fragment_find_merchant_recyclerView_merchant_articles"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:horizontalSpacing="20dp"
+        android:numColumns="2"
+        android:verticalSpacing="5dp" />
 
 </RelativeLayout>

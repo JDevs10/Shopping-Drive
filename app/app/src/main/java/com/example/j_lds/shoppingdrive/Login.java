@@ -62,11 +62,7 @@ public class Login extends AppCompatActivity {
         register_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
                 Intent intent= new Intent(Login.this,Register.class);
-                startActivity(intent);
-                */
-                Intent intent= new Intent(Login.this,Home.class);
                 startActivity(intent);
             }
         });
@@ -101,7 +97,7 @@ public class Login extends AppCompatActivity {
                                 currentUser = mAuth.getCurrentUser();
                                 Toast.makeText(Login.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
 
-                                Intent intent= new Intent(Login.this, FindMerchant.class);
+                                Intent intent= new Intent(Login.this, Home.class);
                                 intent.putExtra("user_logged_id", currentUser.getUid());
                                 startActivity(intent);
 

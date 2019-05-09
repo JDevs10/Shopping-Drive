@@ -1,9 +1,9 @@
 package com.example.j_lds.shoppingdrive.adapters;
 
 import android.content.Context;
-import android.app.Activity;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.j_lds.shoppingdrive.R;
+import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
+import com.example.j_lds.shoppingdrive.databaseOffline.model.Settings;
+import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchantArticles;
 import com.example.j_lds.shoppingdrive.object_class.Merchant;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +24,7 @@ import java.util.ArrayList;
 public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapter.ViewHolder> {
     private ArrayList<Merchant> merchants;
     private Context mContext;
+    private DatabaseHelper db;
 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -38,8 +42,10 @@ public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapte
         }
     }
 
-    public FindMerchantAdapter(ArrayList<Merchant> merchants) {
+    public FindMerchantAdapter(Context context, ArrayList<Merchant> merchants) {
         this.merchants = merchants;
+        this.mContext = context;
+        this.db = new DatabaseHelper(mContext);
     }
 
     @NonNull
@@ -65,9 +71,31 @@ public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapte
                         "The Position ==> "+position+"\n" +
                         "Merchant id ==> "+merchants.get(position).getId());
 
-                Intent intent= new Intent(mContext, FindMerchantArticles.class);
-                intent.putExtra("SelectedMerchantUid", merchants.get(position).getId());
-                ((Activity) mContext).startActivityForResult(intent, 1);
+                //Intent intent= new Intent(mContext, FindMerchantArticles.class);
+                //intent.putExtra("SelectedMerchantUid", merchants.get(position).getId());
+                //((Activity) mContext).startActivityForResult(intent, 1);
+
+
+                Bundle bundle=new Bundle();
+                bundle.putString("SelectedMerchantUid", merchants.get(position).getId());
+                bundle.putString("SelectedMerchantCompanyName", merchants.get(position).getCompanyName());
+
+                //reset data settings
+                db.deleteSettingsData(1);
+                db.defaultSettings();
+
+                //add new data settings
+                Settings settings = new Settings();
+                settings.setId(1);
+                settings.setSelectedMerchantUid(merchants.get(position).getId());
+                settings.setSelectedMerchantCompanyName(merchants.get(position).getCompanyName());
+                db.updateSettingsData(settings);
+
+                FragmentFindMerchantArticles merchantArticles = new FragmentFindMerchantArticles();
+                merchantArticles.setArguments(bundle);
+                AppCompatActivity activity = (AppCompatActivity) mContext;
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, merchantArticles).addToBackStack(null).commit();
+
             }
         });
     }
