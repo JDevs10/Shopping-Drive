@@ -42,6 +42,7 @@ public class FragmentUserBasket extends Fragment {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private String currentUserUid;
     private DatabaseReference mdatabaseReference;
 
     private ArrayList<Article> articleBasket;
@@ -58,6 +59,17 @@ public class FragmentUserBasket extends Fragment {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
+
+        //When initializing your Activity, check to see if the user is currently signed in.
+        currentUser = mAuth.getCurrentUser();
+        if (currentUser != null){
+            currentUserUid = currentUser.getUid();
+            Toast.makeText(mContext, "Welcome "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(mContext, "Please login to continue\nor sign up ", Toast.LENGTH_SHORT).show();
+            Intent intent= new Intent(mContext, Login.class);
+            startActivity(intent);
+        }
     }
 
     @Nullable
@@ -87,28 +99,18 @@ public class FragmentUserBasket extends Fragment {
 
         articleBasket = new ArrayList<Article>();
         getCurrentUserBasketDbData();
+
         mUserBasketAdapter = new UserBasketAdapter(articleBasket);
         mRecycleView.setAdapter(mUserBasketAdapter);
     }
-    //When initializing your Activity, check to see if the user is currently signed in.
-    @Override
-    public void onStart() {
-        super.onStart();
-        currentUser = mAuth.getCurrentUser();
-        if (currentUser != null){
-            Toast.makeText(mContext, "Welcome "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
-        }else{
-            Toast.makeText(mContext, "Please login to continue\nor sign up ", Toast.LENGTH_SHORT).show();
-            Intent intent= new Intent(mContext, Login.class);
-            startActivity(intent);
-        }
-    }
+
 
     private void getCurrentUserBasketDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+selectedMerchanteUid+"/basket");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+currentUserUid+"/basket");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 articleBasket.clear();
                 if(dataSnapshot.exists()){
                     for (DataSnapshot ds : dataSnapshot.getChildren()) {

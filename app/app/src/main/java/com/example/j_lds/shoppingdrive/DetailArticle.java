@@ -38,6 +38,7 @@ public class DetailArticle extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
+    private String currentUserUid;
     private DatabaseReference mdatabaseReference;
 
     private ArrayList<Article> articleBasket;
@@ -99,7 +100,6 @@ public class DetailArticle extends AppCompatActivity {
         addArticleToBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 addArticleToBasket(selectedArticle);
             }
         });
@@ -111,7 +111,8 @@ public class DetailArticle extends AppCompatActivity {
         super.onStart();
         currentUser = mAuth.getCurrentUser();
         if (currentUser != null){
-            Toast.makeText(this, "Welcome "+currentUser.getEmail(), Toast.LENGTH_SHORT).show();
+            currentUserUid = currentUser.getUid();
+            Toast.makeText(this, "Welcome "+currentUser.getEmail()+"\nUid: "+currentUser.getUid(), Toast.LENGTH_SHORT).show();
         }else{
             Toast.makeText(this, "Please login to continue\nor sign up ", Toast.LENGTH_SHORT).show();
             Intent intent= new Intent(this, Login.class);
@@ -159,20 +160,20 @@ public class DetailArticle extends AppCompatActivity {
         articlePrice.setText(article.getPrice()+" €");
         articleDescription.setText(article.getDescription());
 
-        Log.d("Showing Article : ", article.getId()+"\nLoaded !");
-        Toast.makeText(getBaseContext(),"Article : "+article.getId()+"\nLoaded !",Toast.LENGTH_LONG).show();
+        //Log.d("Showing Article : ", article.getId()+"\nLoaded !");
+        //Toast.makeText(getBaseContext(),"Article : "+article.getId()+"\nLoaded !",Toast.LENGTH_LONG).show();
     }
 
     //Add an article to the current user basket
     private void addArticleToBasket(Article article){
         mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
-        mdatabaseReference.child("user/client/" + selectedMerchanteUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
+        mdatabaseReference.child("user/client/" + currentUserUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
 
         Toast.makeText(this, "Article "+article.getName()+" added in basket", Toast.LENGTH_SHORT).show();
     }
 
     private void getCurrentUserArticleBasketDbData(){
-        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+selectedMerchanteUid+"/basket");
+        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference().child("user/client/"+currentUserUid+"/basket");
         mdatabaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
