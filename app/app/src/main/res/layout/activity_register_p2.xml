@@ -1,145 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/textView_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="114dp"
-        android:layout_marginLeft="115dp"
-        android:layout_marginRight="114dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
         android:text="@string/registration"
         android:textColor="@android:color/background_dark"
         android:textSize="36sp"
-        app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:fontFamily="cursive" />
 
     <EditText
         android:id="@+id/editText_street_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
-        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/street_address"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_register" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText_city_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/city"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_street_address" />
+        android:inputType="textPersonName"/>
 
     <EditText
         android:id="@+id/editText_country_code_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country_code"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_city_address" />
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText_country_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="54dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginRight="54dp"
-        android:layout_marginStart="53dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_code_address" />
+        android:inputType="textPersonName" />
 
-    <Button
-        android:id="@+id/button_save"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginStart="35dp"
-        android:background="@drawable/round_edge_button_color_orange"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_back_regist1" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp">
 
-    <Button
-        android:id="@+id/button_back_regist1"
-        android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/textView_image"
+            android:layout_width="215dp"
+            android:layout_height="30dp"
+            android:text="@string/image"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/button_getImage" />
+
+        <Button
+            android:id="@+id/button_getImage"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:text="import" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginStart="53dp"
-        android:background="@drawable/round_edge_button_color_orange"
-        android:text="@string/back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp">
 
-    <Button
-        android:id="@+id/button_getImage"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="20dp"
-        android:text="import"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+        <Button
+            android:id="@+id/button_back_regist1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/round_edge_button_color_orange"
+            android:text="@string/back" />
 
-    <TextView
-        android:id="@+id/textView_image"
-        android:layout_width="215dp"
-        android:layout_height="30dp"
-        android:layout_marginEnd="9dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginRight="9dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/image"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/button_getImage"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText_country_address" />
+        <Button
+            android:id="@+id/button_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/round_edge_button_color_orange"
+            android:text="@string/save" />
 
+    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -21,9 +21,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-    Button register_button;
-    Button login_button;
-    Button pwd_button;
+    private Button register_button;
+    private Button login_button;
+    private Button pwd_button;
 
     private EditText user_email_et;
     private EditText user_pwd_et;

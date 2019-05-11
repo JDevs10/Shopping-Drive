@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ChangePWD"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
 
     <TextView
         android:id="@+id/textView_change_pwd_changePWD_title"
-        android:layout_width="295dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="18dp"
-        android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         android:text="@string/change_your_password"
         android:textColor="@color/color_dark"
         android:textSize="36sp"
-        app:fontFamily="cursive"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:fontFamily="cursive"/>
+
+    <TextView
+        android:id="@+id/textView_change_PWD_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:gravity="center"
+        android:text="@string/change_PWD_info"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 
     <EditText
         android:id="@+id/editText_change_pwd_email"
@@ -36,55 +45,35 @@
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/color_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_change_PWD_info" />
+        android:textColor="@color/color_dark" />
 
-    <Button
-        android:id="@+id/button_change_pwd_rest"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginStart="35dp"
-        android:background="@drawable/round_edge_button_color_orange"
-        android:text="@string/send_email"
-        android:textColor="@color/color_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button_change_pwd_cancel" />
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="100dp"
+        android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/button_change_pwd_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="53dp"
-        android:layout_marginStart="53dp"
-        android:background="@drawable/round_edge_button_color_orange"
-        android:text="@string/cancel"
-        android:textColor="@color/color_dark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/button_change_pwd_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/round_edge_button_color_orange"
+            android:text="@string/cancel"
+            android:textColor="@color/color_dark" />
 
-    <TextView
-        android:id="@+id/textView_change_PWD_info"
-        android:layout_width="324dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="60dp"
-        android:gravity="center"
-        android:text="@string/change_PWD_info"
-        android:textColor="@android:color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_change_pwd_changePWD_title" />
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/button_change_pwd_rest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/round_edge_button_color_orange"
+            android:text="@string/send_email"
+            android:textColor="@color/color_dark" />
+
+    </LinearLayout>
+
+</LinearLayout>
