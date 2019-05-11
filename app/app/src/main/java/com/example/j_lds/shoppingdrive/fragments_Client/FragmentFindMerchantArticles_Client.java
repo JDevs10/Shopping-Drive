@@ -18,7 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticlesAdapter;
+import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticlesAdapter_Client;
 import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.google.firebase.database.DataSnapshot;
@@ -29,8 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FragmentFindMerchantArticles extends Fragment {
-    private String TAG = FragmentFindMerchantArticles.class.getSimpleName();
+public class FragmentFindMerchantArticles_Client extends Fragment {
+    private String TAG = FragmentFindMerchantArticles_Client.class.getSimpleName();
     private Context mContext;
     private View view;
     private Toolbar toolbar;
@@ -103,7 +103,7 @@ public class FragmentFindMerchantArticles extends Fragment {
         articleList = new ArrayList<Article>();
         getMerchantArticleDbData();
 
-        adapter = new FindMerchantArticlesAdapter(selectedMerchantUid, articleList);
+        adapter = new FindMerchantArticlesAdapter_Client(selectedMerchantUid, articleList);
         recyclerView_findMerchantAticles.setAdapter(adapter);
     }
 

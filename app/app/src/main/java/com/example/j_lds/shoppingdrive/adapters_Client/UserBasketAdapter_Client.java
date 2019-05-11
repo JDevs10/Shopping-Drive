@@ -3,28 +3,21 @@ package com.example.j_lds.shoppingdrive.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.interfaces.ClientTotalCostUpdate;
 import com.example.j_lds.shoppingdrive.object_class.Article;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class UserBasketAdapter extends RecyclerView.Adapter<UserBasketAdapter.ViewHolder> {
+public class UserBasketAdapter_Client extends RecyclerView.Adapter<UserBasketAdapter_Client.ViewHolder> {
 
     private String clientUid;
     private ArrayList<Article> articleBasket;
@@ -35,7 +28,7 @@ public class UserBasketAdapter extends RecyclerView.Adapter<UserBasketAdapter.Vi
 
     private boolean init;
 
-    public UserBasketAdapter(ArrayList<Article> articleBasket, String clientUid) {
+    public UserBasketAdapter_Client(ArrayList<Article> articleBasket, String clientUid) {
         this.articleBasket = articleBasket;
         this.clientUid = clientUid;
         this.init = true;

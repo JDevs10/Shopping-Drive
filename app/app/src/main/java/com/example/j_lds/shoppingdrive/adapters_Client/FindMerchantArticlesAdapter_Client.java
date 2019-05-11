@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.j_lds.shoppingdrive.DetailArticle;
+import com.example.j_lds.shoppingdrive.DetailArticle_Client;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.squareup.picasso.Picasso;
@@ -19,7 +19,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 
-public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMerchantArticlesAdapter.ViewHolder>{
+public class FindMerchantArticlesAdapter_Client extends RecyclerView.Adapter<FindMerchantArticlesAdapter_Client.ViewHolder>{
 
     private ArrayList<Article> articles;
     private String merchantUid;
@@ -41,7 +41,7 @@ public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMercha
         }
     }
 
-    public FindMerchantArticlesAdapter(String merchantUid, ArrayList<Article> articles) {
+    public FindMerchantArticlesAdapter_Client(String merchantUid, ArrayList<Article> articles) {
         this.merchantUid = merchantUid;
         this.articles = articles;
     }
@@ -53,7 +53,7 @@ public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMercha
         mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.custom_find_merchant_articles,parent,false);
-        return new FindMerchantArticlesAdapter.ViewHolder(v);
+        return new FindMerchantArticlesAdapter_Client.ViewHolder(v);
     }
 
     @Override
@@ -65,7 +65,7 @@ public class FindMerchantArticlesAdapter extends RecyclerView.Adapter<FindMercha
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(mContext, DetailArticle.class);
+                Intent intent= new Intent(mContext, DetailArticle_Client.class);
                 intent.putExtra("SelectedMerchantUid", merchantUid);
                 intent.putExtra("SelectedArticleUid", articles.get(position).getId());
                 ((Activity) mContext).startActivityForResult(intent, 1);

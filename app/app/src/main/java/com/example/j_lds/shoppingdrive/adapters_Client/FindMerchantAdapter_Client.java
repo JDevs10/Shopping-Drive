@@ -15,13 +15,13 @@ import android.widget.TextView;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.databaseOffline.model.Settings;
-import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchantArticles;
+import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchantArticles_Client;
 import com.example.j_lds.shoppingdrive.object_class.Merchant;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapter.ViewHolder> {
+public class FindMerchantAdapter_Client extends RecyclerView.Adapter<FindMerchantAdapter_Client.ViewHolder> {
     private ArrayList<Merchant> merchants;
     private Context mContext;
     private DatabaseHelper db;
@@ -42,7 +42,7 @@ public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapte
         }
     }
 
-    public FindMerchantAdapter(Context context, ArrayList<Merchant> merchants) {
+    public FindMerchantAdapter_Client(Context context, ArrayList<Merchant> merchants) {
         this.merchants = merchants;
         this.mContext = context;
         this.db = new DatabaseHelper(mContext);
@@ -91,7 +91,7 @@ public class FindMerchantAdapter extends RecyclerView.Adapter<FindMerchantAdapte
                 settings.setSelectedMerchantCompanyName(merchants.get(position).getCompanyName());
                 db.updateSettingsData(settings);
 
-                FragmentFindMerchantArticles merchantArticles = new FragmentFindMerchantArticles();
+                FragmentFindMerchantArticles_Client merchantArticles = new FragmentFindMerchantArticles_Client();
                 merchantArticles.setArguments(bundle);
                 AppCompatActivity activity = (AppCompatActivity) mContext;
                 activity.getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, merchantArticles).addToBackStack(null).commit();

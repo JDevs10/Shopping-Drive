@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.j_lds.shoppingdrive.R;
 
-public class FragmentProfile extends Fragment {
-    private String TAG = FragmentProfile.class.getSimpleName();
+public class FragmentProfile_Client extends Fragment {
+    private String TAG = FragmentProfile_Client.class.getSimpleName();
     private View view;
 
     @Nullable

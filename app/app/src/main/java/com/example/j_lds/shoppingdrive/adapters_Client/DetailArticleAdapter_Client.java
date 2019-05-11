@@ -14,13 +14,13 @@ import com.example.j_lds.shoppingdrive.object_class.Article;
 
 import java.util.ArrayList;
 
-public class DetailArticleAdapter extends RecyclerView.Adapter<DetailArticleAdapter.ViewHolder>{
+public class DetailArticleAdapter_Client extends RecyclerView.Adapter<DetailArticleAdapter_Client.ViewHolder>{
 
     private ArrayList<Article> articleBasket;
     private Context mContext;
     View view;
 
-    public DetailArticleAdapter(ArrayList<Article> articleBasket) {
+    public DetailArticleAdapter_Client(ArrayList<Article> articleBasket) {
         this.articleBasket = articleBasket;
     }
 
@@ -35,7 +35,7 @@ public class DetailArticleAdapter extends RecyclerView.Adapter<DetailArticleAdap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull DetailArticleAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull DetailArticleAdapter_Client.ViewHolder holder, final int position) {
         holder.article_name.setText(articleBasket.get(position).getName());
         holder.article_price.setText(articleBasket.get(position).getPrice()+" €");
     }

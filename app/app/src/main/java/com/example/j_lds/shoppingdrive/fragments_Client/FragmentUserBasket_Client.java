@@ -16,10 +16,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.Checkout;
+import com.example.j_lds.shoppingdrive.Checkout_Client;
 import com.example.j_lds.shoppingdrive.Login;
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.UserBasketAdapter;
+import com.example.j_lds.shoppingdrive.adapters.UserBasketAdapter_Client;
 import com.example.j_lds.shoppingdrive.interfaces.ClientTotalCostUpdate;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,8 +32,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FragmentUserBasket extends Fragment {
-    private String TAG = FragmentUserBasket.class.getSimpleName();
+public class FragmentUserBasket_Client extends Fragment {
+    private String TAG = FragmentUserBasket_Client.class.getSimpleName();
     private View view;
     private Context mContext;
 
@@ -41,7 +41,7 @@ public class FragmentUserBasket extends Fragment {
     private Button btn_sendOrder;
 
     private RecyclerView mRecycleView;
-    private UserBasketAdapter mUserBasketAdapter;
+    private UserBasketAdapter_Client mUserBasketAdapterClient;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -104,10 +104,10 @@ public class FragmentUserBasket extends Fragment {
         articleBasket = new ArrayList<Article>();
         getCurrentUserBasketDbData();
 
-        mUserBasketAdapter = new UserBasketAdapter(articleBasket, currentUserUid);
-        mRecycleView.setAdapter(mUserBasketAdapter);
+        mUserBasketAdapterClient = new UserBasketAdapter_Client(articleBasket, currentUserUid);
+        mRecycleView.setAdapter(mUserBasketAdapterClient);
 
-        mUserBasketAdapter.setTotalCostUpdateListener(new ClientTotalCostUpdate() {
+        mUserBasketAdapterClient.setTotalCostUpdateListener(new ClientTotalCostUpdate() {
             @Override
             public void OnTotalCostUpdate(double data) {
                 Log.e(TAG, " OnTotalCostUpdate() => "+data);
@@ -136,7 +136,7 @@ public class FragmentUserBasket extends Fragment {
                             Log.d("Basket Article info: ", "||=> "+article.getDescription());
 
                             articleBasket.add(article);
-                            mUserBasketAdapter.notifyDataSetChanged();
+                            mUserBasketAdapterClient.notifyDataSetChanged();
                         }else{
                             Log.d("Article Error : ", "Can't find articles !!!");
                         }
@@ -152,7 +152,7 @@ public class FragmentUserBasket extends Fragment {
     }
 
     private void sendOrder(){
-        Intent intent= new Intent(mContext, Checkout.class);
+        Intent intent= new Intent(mContext, Checkout_Client.class);
         startActivity(intent);
     }
 

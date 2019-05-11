@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.Login;
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.FindMerchantAdapter;
+import com.example.j_lds.shoppingdrive.adapters.FindMerchantAdapter_Client;
 import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.object_class.Merchant;
 import com.example.j_lds.shoppingdrive.object_class.User;
@@ -30,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class FragmentFindMerchant extends Fragment {
-    private String TAG = FragmentFindMerchant.class.getSimpleName();
+public class FragmentFindMerchant_Client extends Fragment {
+    private String TAG = FragmentFindMerchant_Client.class.getSimpleName();
     private View view;
     private Context mContext;
 
@@ -77,7 +77,7 @@ public class FragmentFindMerchant extends Fragment {
         merchants = new ArrayList<Merchant>();
         getMerchantDbData();
 
-        adapter = new FindMerchantAdapter(mContext, merchants);
+        adapter = new FindMerchantAdapter_Client(mContext, merchants);
         recyclerView_findMerchant.setHasFixedSize(true);
         recyclerView_findMerchant.setLayoutManager(new LinearLayoutManager(mContext));
         recyclerView_findMerchant.setAdapter(adapter);
