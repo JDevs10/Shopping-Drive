@@ -13,12 +13,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.Checkout;
 import com.example.j_lds.shoppingdrive.Login;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.adapters.UserBasketAdapter;
+import com.example.j_lds.shoppingdrive.interfaces.ClientTotalCostUpdate;
 import com.example.j_lds.shoppingdrive.object_class.Article;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -35,6 +37,7 @@ public class FragmentUserBasket extends Fragment {
     private View view;
     private Context mContext;
 
+    TextView tv_totalCost;
     private Button btn_sendOrder;
 
     private RecyclerView mRecycleView;
@@ -78,6 +81,7 @@ public class FragmentUserBasket extends Fragment {
         view = inflater.inflate(R.layout.fragment_basket, container, false);
 
         mRecycleView = (RecyclerView) view.findViewById(R.id.recycleView_basket_myBasketList);
+        tv_totalCost = (TextView) view.findViewById(R.id.textView_basket_totalCost);
 
         btn_sendOrder = (Button) view.findViewById(R.id.button_sendMyOrder);
         btn_sendOrder.setOnClickListener(new View.OnClickListener() {
@@ -100,8 +104,16 @@ public class FragmentUserBasket extends Fragment {
         articleBasket = new ArrayList<Article>();
         getCurrentUserBasketDbData();
 
-        mUserBasketAdapter = new UserBasketAdapter(articleBasket);
+        mUserBasketAdapter = new UserBasketAdapter(articleBasket, currentUserUid);
         mRecycleView.setAdapter(mUserBasketAdapter);
+
+        mUserBasketAdapter.setTotalCostUpdateListener(new ClientTotalCostUpdate() {
+            @Override
+            public void OnTotalCostUpdate(double data) {
+                Log.e(TAG, " OnTotalCostUpdate() => "+data);
+                tv_totalCost.setText(String.valueOf(data));
+            }
+        });
     }
 
 
@@ -117,10 +129,11 @@ public class FragmentUserBasket extends Fragment {
                         if(dataSnapshot.exists()){
                             Article article = ds.getValue(Article.class);
                             article.setId(ds.getKey());
-                            Log.d("Basket Article id : ", "||=> "+article.getId());
-                            Log.d("Basket Article name : ", "||=> "+article.getName());
-                            Log.d("Basket Article image : ", "||=> "+article.getImage());
-                            Log.d("Basket Article info : ", "||=> "+article.getDescription());
+                            Log.d("Basket Article id: ", "||=> "+article.getId());
+                            Log.d("Basket Article name: ", "||=> "+article.getName());
+                            Log.d("Basket Article image: ", "||=> "+article.getImage());
+                            Log.d("Basket Article quanti: ", "||=> "+article.getQuantity());
+                            Log.d("Basket Article info: ", "||=> "+article.getDescription());
 
                             articleBasket.add(article);
                             mUserBasketAdapter.notifyDataSetChanged();

@@ -28,7 +28,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class DetailArticle extends AppCompatActivity {
-
+    private String TAG = DetailArticle.class.getSimpleName();
     private TextView showBasketInfo;
 
     private Button addArticleToBasket, showBasketButton, back;
@@ -45,7 +45,6 @@ public class DetailArticle extends AppCompatActivity {
     private String selectedMerchanteUid = "";
     private String selectedArticleUid = "";
     private Article selectedArticle;
-    private long cpt = 0;
 
     private boolean btn_down = true;
 
@@ -69,30 +68,12 @@ public class DetailArticle extends AppCompatActivity {
         selectedArticle = new Article();
         getArticleDbData();
 
-
-        //set recycle view / get my activity_user_basket "if I have"..............................................
-        showBasketInfo = (TextView)findViewById(R.id.textView_basket_recycleView_info);
-
-        mRecycleView = (RecyclerView)findViewById(R.id.recyclerView_basket);
-        mRecycleView.setHasFixedSize(true);
-        mRecycleView.setLayoutManager(new LinearLayoutManager(this));
-
         articleBasket = new ArrayList<Article>();
-        mDetailArticleAdapter = new DetailArticleAdapter(articleBasket);
-        mRecycleView.setAdapter(mDetailArticleAdapter);
 
         back = (Button)findViewById(R.id.button_back_from_detail_article_to_find_merchant_articles);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { back_from_DetailArticle_to_merchantArticles();
-            }
-        });
-
-        showBasketButton = (Button)findViewById(R.id.Button_detailArticle_arrow_down_black);
-        showBasketButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dropDownBasketList();
             }
         });
 
@@ -165,11 +146,33 @@ public class DetailArticle extends AppCompatActivity {
     }
 
     //Add an article to the current user basket
-    private void addArticleToBasket(Article article){
+    private void addArticleToBasket(final Article article){
         mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
-        mdatabaseReference.child("user/client/" + currentUserUid + "/basket/"+article.getId()+"_"+cpt++).setValue(article);
+        mdatabaseReference.child("user/client/" + currentUserUid + "/basket").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()){
+                    Log.e(TAG, " DataSnapshot children: "+dataSnapshot.getChildren().toString());
+                    if (!dataSnapshot.hasChild(article.getId())){
+                        mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
+                        mdatabaseReference.child("user/client/" + currentUserUid + "/basket/"+article.getId()).setValue(article);
 
-        Toast.makeText(this, "Article "+article.getName()+" added in basket", Toast.LENGTH_SHORT).show();
+                        Log.e(TAG, " Article "+article.getId());
+                        Toast.makeText(DetailArticle.this, "The article "+article.getName()+" is added to your basket.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(DetailArticle.this, "Article "+article.getName()+" is already in your basket.", Toast.LENGTH_SHORT).show();
+                    }
+                }else{
+                    mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
+                    mdatabaseReference.child("user/client/" + currentUserUid + "/basket/"+article.getId()).setValue(article);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(getBaseContext(), "ERROR 'Get Article' :\n"+databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void getCurrentUserArticleBasketDbData(){

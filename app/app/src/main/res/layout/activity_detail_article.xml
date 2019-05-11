@@ -94,49 +94,49 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_detail-article-addToBasket" />
 
-    <TextView
-        android:id="@+id/textView_basket_recycleView_info"
-        android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:background="@android:color/white"
-        android:padding="10dp"
-        android:text="The basket is empty... 0 articles"
-        android:textColor="@color/color_dark"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/Button_detailArticle_arrow_down_black"
-        app:layout_constraintStart_toEndOf="@+id/imageView_detail_article_basket_img" />
+    <!--<TextView-->
+        <!--android:id="@+id/textView_basket_recycleView_info"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:padding="10dp"-->
+        <!--android:text="The basket is empty... 0 articles"-->
+        <!--android:textColor="@color/color_dark"-->
+        <!--android:textSize="14sp"-->
+        <!--android:textStyle="bold"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toStartOf="@+id/Button_detailArticle_arrow_down_black"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/imageView_detail_article_basket_img" />-->
 
-    <ImageView
-        android:id="@+id/imageView_detail_article_basket_img"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@android:color/white"
-        android:onClick="viewUserBasket_from_DetailArticle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@mipmap/ic_basket" />
+    <!--<ImageView-->
+        <!--android:id="@+id/imageView_detail_article_basket_img"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@android:color/white"-->
+        <!--android:onClick="viewUserBasket_from_DetailArticle"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintStart_toStartOf="parent"-->
+        <!--app:srcCompat="@mipmap/ic_basket" />-->
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_basket"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="@color/cardview_light_background"
-        android:elevation="100dp"
-        android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/textView_basket_recycleView_info"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/recyclerView_basket"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="350dp"-->
+        <!--android:background="@color/cardview_light_background"-->
+        <!--android:elevation="100dp"-->
+        <!--android:visibility="gone"-->
+        <!--app:layout_constraintBottom_toTopOf="@+id/textView_basket_recycleView_info"-->
+        <!--app:layout_constraintEnd_toEndOf="parent"-->
+        <!--app:layout_constraintHorizontal_bias="0.0"-->
+        <!--app:layout_constraintStart_toStartOf="parent" />-->
 
-    <Button
-        android:id="@+id/Button_detailArticle_arrow_down_black"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:background="@drawable/arrow_up_black"
-        android:typeface="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    <!--<Button-->
+        <!--android:id="@+id/Button_detailArticle_arrow_down_black"-->
+        <!--android:layout_width="40dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@drawable/arrow_up_black"-->
+        <!--android:typeface="normal"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--app:layout_constraintEnd_toEndOf="parent" />-->
 
 </android.support.constraint.ConstraintLayout>

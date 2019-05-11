@@ -7,9 +7,11 @@ public class Article {
     private String image; //this will change in the future but it is use for test pruposes
     private String name;
     private double price;
+    private int quantity;
     private String description;
 
     public Article() {
+        this.quantity = 1;
     }
 
     public void setId(String id){  this.id = id;}
@@ -38,6 +40,14 @@ public class Article {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDescription() {

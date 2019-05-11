@@ -2,7 +2,8 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_dark_green">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -21,6 +22,28 @@
                 android:layout_gravity="center_horizontal" />
 
             <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="right">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/color_dark"
+                    android:textSize="18dp"
+                    android:text="Total cost : "/>
+
+                <TextView
+                    android:id="@+id/textView_basket_totalCost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="100$"
+                    android:textSize="18dp"
+                    android:textColor="@android:color/holo_red_dark" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -31,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/round_edge_button"
+                    android:background="@drawable/round_edge_button_color_orange"
                     android:padding="5dp"
                     android:text="@string/send_my_order"
                     android:textColor="@android:color/black"

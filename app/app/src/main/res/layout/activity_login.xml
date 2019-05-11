@@ -36,7 +36,7 @@
         android:layout_marginRight="96dp"
         android:layout_marginStart="96dp"
         android:layout_marginTop="51dp"
-        android:background="@drawable/round_edge_button"
+        android:background="@drawable/round_edge_button_color_orange"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
