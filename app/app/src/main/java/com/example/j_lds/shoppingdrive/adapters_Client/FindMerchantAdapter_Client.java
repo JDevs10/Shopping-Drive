@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.adapters;
+package com.example.j_lds.shoppingdrive.adapters_Client;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -13,10 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
-import com.example.j_lds.shoppingdrive.databaseOffline.model.Settings;
-import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchantArticles_Client;
-import com.example.j_lds.shoppingdrive.object_class.Merchant;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.model.Settings;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchantArticles_Client;
+import com.example.j_lds.shoppingdrive.object_class_Client.Merchant;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -54,7 +54,7 @@ public class FindMerchantAdapter_Client extends RecyclerView.Adapter<FindMerchan
 //        return null;
         mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_find_merchant,parent,false);
+                .inflate(R.layout.custom_find_merchant_client,parent,false);
         return new ViewHolder(v);
     }
 

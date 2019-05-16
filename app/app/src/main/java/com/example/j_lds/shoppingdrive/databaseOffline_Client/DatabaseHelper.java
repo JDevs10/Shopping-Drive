@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.databaseOffline;
+package com.example.j_lds.shoppingdrive.databaseOffline_Client;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -7,7 +7,7 @@ import android.util.Log;
 
 import android.content.Context;
 
-import com.example.j_lds.shoppingdrive.databaseOffline.model.Settings;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.model.Settings;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static String DATABASE_NAME = "Shopping_Drive.db";

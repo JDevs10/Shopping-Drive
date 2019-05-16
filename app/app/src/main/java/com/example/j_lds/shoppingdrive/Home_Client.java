@@ -15,16 +15,16 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
-import com.example.j_lds.shoppingdrive.databaseOffline.model.Settings;
-import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchant;
-import com.example.j_lds.shoppingdrive.fragments.FragmentFindMerchantArticles;
-import com.example.j_lds.shoppingdrive.fragments.FragmentProfile;
-import com.example.j_lds.shoppingdrive.fragments.FragmentUserBasket;
-import com.example.j_lds.shoppingdrive.fragments.FragmentUserOrders;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.model.Settings;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchant_Client;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchantArticles_Client;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentProfile_Client;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentUserBasket_Client;
+import com.example.j_lds.shoppingdrive.fragments_Client.FragmentUserOrders_Client;
 
-public class Home extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private String TAG = Home.class.getSimpleName();
+public class Home_Client extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    private String TAG = Home_Client.class.getSimpleName();
 
     private Toolbar toolbar;
     private DrawerLayout drawer;
@@ -38,7 +38,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_home_client);
 
         db = new DatabaseHelper(this);
         //reset data settings
@@ -66,7 +66,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
         if (savedInstanceState == null){
             //default fragment when activity is running
             navigationView.setCheckedItem(R.id.nav_store);
-            getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchant()).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchant_Client()).commit();
         }
     }
 
@@ -85,20 +85,20 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_profile:
                 toolbar.setTitle("");
                 navigationView.setCheckedItem(R.id.nav_profile);
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentProfile()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentProfile_Client()).commit();
                 break;
 
             case R.id.nav_store:
                 toolbar.setTitle("Stores");
                 navigationView.setCheckedItem(R.id.nav_store);
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchant()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchant_Client()).commit();
                 break;
 
             case R.id.nav_shelves:
                 if(getMerchantUidFromDB()) {
                     toolbar.setTitle(merchantCompanyName+"'s Products");
                     navigationView.setCheckedItem(R.id.nav_shelves);
-                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchantArticles()).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentFindMerchantArticles_Client()).commit();
                 }else{
                     Toast.makeText(this, "Please select a store !!!", Toast.LENGTH_SHORT).show();
                 }
@@ -107,13 +107,13 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
             case R.id.nav_basket:
                 toolbar.setTitle("My Basket");
                 navigationView.setCheckedItem(R.id.nav_basket);
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentUserBasket()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentUserBasket_Client()).commit();
                 break;
 
             case R.id.nav_orders:
                 toolbar.setTitle("My Orders");
                 navigationView.setCheckedItem(R.id.nav_orders);
-                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentUserOrders()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.home_fragment_container, new FragmentUserOrders_Client()).commit();
                 break;
 
             case R.id.nav_conditions:

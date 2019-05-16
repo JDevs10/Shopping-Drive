@@ -14,8 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.adapters.DetailArticleAdapter;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.adapters_Client.DetailArticleAdapter_Client;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -27,14 +27,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class DetailArticle extends AppCompatActivity {
-    private String TAG = DetailArticle.class.getSimpleName();
+public class DetailArticle_Client extends AppCompatActivity {
+    private String TAG = DetailArticle_Client.class.getSimpleName();
     private TextView showBasketInfo;
 
     private Button addArticleToBasket, showBasketButton, back;
 
     private RecyclerView mRecycleView;
-    private DetailArticleAdapter mDetailArticleAdapter;
+    private DetailArticleAdapter_Client mDetailArticleAdapter_Client;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -51,7 +51,7 @@ public class DetailArticle extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_article);
+        setContentView(R.layout.activity_detail_article_client);
 
         //Hides MACC bar at the top.................................................................
         getSupportActionBar().hide();
@@ -158,9 +158,9 @@ public class DetailArticle extends AppCompatActivity {
                         mdatabaseReference.child("user/client/" + currentUserUid + "/basket/"+article.getId()).setValue(article);
 
                         Log.e(TAG, " Article "+article.getId());
-                        Toast.makeText(DetailArticle.this, "The article "+article.getName()+" is added to your basket.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailArticle_Client.this, "The article "+article.getName()+" is added to your basket.", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(DetailArticle.this, "Article "+article.getName()+" is already in your basket.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(DetailArticle_Client.this, "Article "+article.getName()+" is already in your basket.", Toast.LENGTH_SHORT).show();
                     }
                 }else{
                     mdatabaseReference = FirebaseDatabase.getInstance("https://shopping-drive-4bdce.firebaseio.com/").getReference();
@@ -193,7 +193,7 @@ public class DetailArticle extends AppCompatActivity {
                             Log.d("Basket Article info : ", "||=> "+article.getDescription());
 
                             articleBasket.add(article);
-                            mDetailArticleAdapter.notifyDataSetChanged();
+                            mDetailArticleAdapter_Client.notifyDataSetChanged();
                         }else{
                             Log.d("Article Error : ", "Can't find articles !!!");
                         }
@@ -228,14 +228,14 @@ public class DetailArticle extends AppCompatActivity {
     }
 
     public void viewUserBasket_from_DetailArticle(View view){
-        Intent intent= new Intent(DetailArticle.this, Home.class);
-        intent.putExtra("where_the_user_was", DetailArticle.class.getSimpleName());
+        Intent intent= new Intent(DetailArticle_Client.this, Home_Client.class);
+        intent.putExtra("where_the_user_was", DetailArticle_Client.class.getSimpleName());
         intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }
 
     public void back_from_DetailArticle_to_merchantArticles(){
-        Intent intent= new Intent(DetailArticle.this, Home.class);
+        Intent intent= new Intent(DetailArticle_Client.this, Home_Client.class);
         intent.putExtra("SelectedMerchantUid", selectedMerchanteUid);
         startActivity(intent);
     }

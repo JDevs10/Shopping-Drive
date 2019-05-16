@@ -17,9 +17,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.object_class.User;
-import com.example.j_lds.shoppingdrive.object_class.UserClient;
-import com.example.j_lds.shoppingdrive.object_class.UserMerchant;
+import com.example.j_lds.shoppingdrive.object_class_Client.User;
+import com.example.j_lds.shoppingdrive.object_class_Client.UserClient;
+import com.example.j_lds.shoppingdrive.object_class_Client.UserMerchant;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

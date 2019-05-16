@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments;
+package com.example.j_lds.shoppingdrive.fragments_Client;
 
 import android.content.Context;
 import android.content.Intent;
@@ -19,9 +19,9 @@ import android.widget.Toast;
 import com.example.j_lds.shoppingdrive.Checkout_Client;
 import com.example.j_lds.shoppingdrive.Login;
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.UserBasketAdapter_Client;
-import com.example.j_lds.shoppingdrive.interfaces.ClientTotalCostUpdate;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.adapters_Client.UserBasketAdapter_Client;
+import com.example.j_lds.shoppingdrive.interfaces_Client.ClientTotalCostUpdate;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -78,7 +78,7 @@ public class FragmentUserBasket_Client extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_basket, container, false);
+        view = inflater.inflate(R.layout.fragment_basket_client, container, false);
 
         mRecycleView = (RecyclerView) view.findViewById(R.id.recycleView_basket_myBasketList);
         tv_totalCost = (TextView) view.findViewById(R.id.textView_basket_totalCost);

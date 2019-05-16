@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments;
+package com.example.j_lds.shoppingdrive.fragments_Client;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -18,9 +18,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.FindMerchantArticlesAdapter_Client;
-import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.adapters_Client.FindMerchantArticlesAdapter_Client;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -81,7 +81,7 @@ public class FragmentFindMerchantArticles_Client extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_find_merchant_article, container, false);
+        view = inflater.inflate(R.layout.fragment_find_merchant_article_client, container, false);
 
         recyclerView_findMerchantAticles = view.findViewById(R.id.fragment_find_merchant_recyclerView_merchant_articles);
 

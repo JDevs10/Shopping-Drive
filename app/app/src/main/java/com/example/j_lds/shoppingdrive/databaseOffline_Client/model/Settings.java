@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.databaseOffline.model;
+package com.example.j_lds.shoppingdrive.databaseOffline_Client.model;
 
 public class Settings {
     private int id;

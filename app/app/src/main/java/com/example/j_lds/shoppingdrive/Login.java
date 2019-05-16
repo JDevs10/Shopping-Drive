@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
-import com.example.j_lds.shoppingdrive.object_class.User;
+import com.example.j_lds.shoppingdrive.object_class_Client.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -98,7 +98,7 @@ public class Login extends AppCompatActivity {
                                 currentUser = mAuth.getCurrentUser();
                                 Toast.makeText(Login.this, "Authentication successful.", Toast.LENGTH_SHORT).show();
 
-                                Intent intent= new Intent(Login.this, Home.class);
+                                Intent intent= new Intent(Login.this, Home_Client.class);
                                 intent.putExtra("user_logged_id", currentUser.getUid());
                                 startActivity(intent);
 

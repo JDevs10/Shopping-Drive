@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments;
+package com.example.j_lds.shoppingdrive.fragments_Client;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -17,7 +17,7 @@ public class FragmentProfile_Client extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_profile, container, false);
+        view = inflater.inflate(R.layout.fragment_profile_client, container, false);
 
         return view;
     }

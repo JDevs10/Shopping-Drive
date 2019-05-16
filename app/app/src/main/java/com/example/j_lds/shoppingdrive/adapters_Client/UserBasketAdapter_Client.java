@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.adapters;
+package com.example.j_lds.shoppingdrive.adapters_Client;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,8 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.interfaces.ClientTotalCostUpdate;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.interfaces_Client.ClientTotalCostUpdate;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -62,7 +62,7 @@ public class UserBasketAdapter_Client extends RecyclerView.Adapter<UserBasketAda
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_basket_articles,parent,false);
+                .inflate(R.layout.custom_basket_articles_client,parent,false);
         return new ViewHolder(v);
     }
 

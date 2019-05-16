@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.adapters;
+package com.example.j_lds.shoppingdrive.adapters_Client;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 import android.content.Context;
 
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ public class DetailArticleAdapter_Client extends RecyclerView.Adapter<DetailArti
 //        return null;
         mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_basket_articles,parent,false);
+                .inflate(R.layout.custom_basket_articles_client,parent,false);
         return new ViewHolder(v);
     }
 

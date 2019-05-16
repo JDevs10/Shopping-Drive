@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Checkout extends AppCompatActivity {
+public class Checkout_Client extends AppCompatActivity {
 
     private Button btn_backWhereTheUserWas, btn_order, btn_continue_order;
     private EditText et_pwd;
@@ -20,7 +20,7 @@ public class Checkout extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checkout);
+        setContentView(R.layout.activity_checkout_client);
 
         //Hides MACC bar at the top.................................................................
         getSupportActionBar().hide();
@@ -61,7 +61,7 @@ public class Checkout extends AppCompatActivity {
     }
 
     private void checkout_p2(int time){
-        setContentView(R.layout.activity_checkout_p2);
+        setContentView(R.layout.activity_checkout_p2_client);
 
         //Hides MACC bar at the top.................................................................
         getSupportActionBar().hide();
@@ -75,14 +75,14 @@ public class Checkout extends AppCompatActivity {
         btn_continue_order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(Checkout.this, Home.class);
+                Intent intent= new Intent(Checkout_Client.this, Home_Client.class);
                 startActivity(intent);
             }
         });
     }
 
     private void back_to_userHome(){
-        Intent intent= new Intent(Checkout.this, Home.class);
+        Intent intent= new Intent(Checkout_Client.this, Home_Client.class);
         startActivity(intent);
     }
 }

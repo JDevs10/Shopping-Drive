@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments;
+package com.example.j_lds.shoppingdrive.fragments_Client;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,10 +16,10 @@ import android.widget.Toast;
 
 import com.example.j_lds.shoppingdrive.Login;
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.adapters.FindMerchantAdapter_Client;
-import com.example.j_lds.shoppingdrive.databaseOffline.DatabaseHelper;
-import com.example.j_lds.shoppingdrive.object_class.Merchant;
-import com.example.j_lds.shoppingdrive.object_class.User;
+import com.example.j_lds.shoppingdrive.adapters_Client.FindMerchantAdapter_Client;
+import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
+import com.example.j_lds.shoppingdrive.object_class_Client.Merchant;
+import com.example.j_lds.shoppingdrive.object_class_Client.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -63,7 +63,7 @@ public class FragmentFindMerchant_Client extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_find_merchant, container, false);
+        view = inflater.inflate(R.layout.fragment_find_merchant_client, container, false);
 
         recyclerView_findMerchant = view.findViewById(R.id.fragment_find_merchant_recyclerView_findMerchant);
 

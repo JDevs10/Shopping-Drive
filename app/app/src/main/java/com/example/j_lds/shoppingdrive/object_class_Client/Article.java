@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.object_class;
+package com.example.j_lds.shoppingdrive.object_class_Client;
 
 
 public class Article {

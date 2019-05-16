@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.adapters;
+package com.example.j_lds.shoppingdrive.adapters_Client;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.j_lds.shoppingdrive.DetailArticle_Client;
 import com.example.j_lds.shoppingdrive.R;
-import com.example.j_lds.shoppingdrive.object_class.Article;
+import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -52,7 +52,7 @@ public class FindMerchantArticlesAdapter_Client extends RecyclerView.Adapter<Fin
 //        return null;
         mContext = parent.getContext();
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_find_merchant_articles,parent,false);
+                .inflate(R.layout.custom_find_merchant_articles_client,parent,false);
         return new FindMerchantArticlesAdapter_Client.ViewHolder(v);
     }
 

@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home"
+            android:name=".Home_Client"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
         <activity android:name=".Register" />
         <activity android:name=".ChangePWD" />
-        <activity android:name=".DetailArticle" />
-        <activity android:name=".Checkout" />
+        <activity android:name=".DetailArticle_Client" />
+        <activity android:name=".Checkout_Client" />
     </application>
 
 </manifest>
