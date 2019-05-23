@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"
+        <activity android:name=".pages_Client.Login"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +21,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Home_Client"
+            android:name=".pages_Client.Home_Client"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-        <activity android:name=".Register" />
-        <activity android:name=".ChangePWD" />
-        <activity android:name=".DetailArticle_Client" />
-        <activity android:name=".Checkout_Client" />
+        <activity android:name=".pages_Client.Register" />
+        <activity android:name=".pages_Client.ChangePWD" />
+        <activity android:name=".pages_Client.DetailArticle_Client" />
+        <activity android:name=".pages_Client.Checkout_Client" />
     </application>
 
 </manifest>

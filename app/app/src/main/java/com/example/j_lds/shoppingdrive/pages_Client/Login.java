@@ -1,7 +1,6 @@
-package com.example.j_lds.shoppingdrive;
+package com.example.j_lds.shoppingdrive.pages_Client;
 
 
-import android.content.res.Configuration;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
 
-import com.example.j_lds.shoppingdrive.object_class_Client.User;
+import com.example.j_lds.shoppingdrive.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

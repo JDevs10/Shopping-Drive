@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments_Client;
+package com.example.j_lds.shoppingdrive.pages_Client.fragments_Client;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,12 +16,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.pages_Client.Checkout_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.Login;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.adapters_Client.UserBasketAdapter_Client;
 import com.example.j_lds.shoppingdrive.interfaces_Client.ClientTotalCostUpdate;
 import com.example.j_lds.shoppingdrive.object_class_Client.Article;
-import com.example.j_lds.shoppingdrive.pages_Client.Checkout_Client;
-import com.example.j_lds.shoppingdrive.pages_Client.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

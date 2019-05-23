@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.databaseOffline_Client.model.Settings;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchantArticles_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentFindMerchantArticles_Client;
 import com.example.j_lds.shoppingdrive.object_class_Client.Merchant;
 import com.squareup.picasso.Picasso;
 

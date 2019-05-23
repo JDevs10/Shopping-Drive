@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive;
+package com.example.j_lds.shoppingdrive.pages_Client;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -17,7 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.j_lds.shoppingdrive.object_class_Client.User;
+import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.object_class_Client.UserClient;
 import com.example.j_lds.shoppingdrive.object_class_Client.UserMerchant;
 import com.google.android.gms.tasks.OnCompleteListener;

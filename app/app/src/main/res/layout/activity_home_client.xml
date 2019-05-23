@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_homeLayout"
     android:fitsSystemWindows="true"
-    tools:context=".Home_Client"
+    tools:context=".pages_Client.Home_Client"
     tools:openDrawer="start">
 
     <LinearLayout

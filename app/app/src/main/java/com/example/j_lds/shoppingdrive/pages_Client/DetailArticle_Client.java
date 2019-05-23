@@ -1,10 +1,9 @@
-package com.example.j_lds.shoppingdrive;
+package com.example.j_lds.shoppingdrive.pages_Client;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.adapters_Client.DetailArticleAdapter_Client;
 import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,7 +34,7 @@ public class DetailArticle_Client extends AppCompatActivity {
     private Button addArticleToBasket, showBasketButton, back;
 
     private RecyclerView mRecycleView;
-    private DetailArticleAdapter_Client mDetailArticleAdapter_Client;
+    private DetailArticleAdapter_Client mDetailArticleAdapterClient;
 
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
@@ -193,7 +193,7 @@ public class DetailArticle_Client extends AppCompatActivity {
                             Log.d("Basket Article info : ", "||=> "+article.getDescription());
 
                             articleBasket.add(article);
-                            mDetailArticleAdapter_Client.notifyDataSetChanged();
+                            mDetailArticleAdapterClient.notifyDataSetChanged();
                         }else{
                             Log.d("Article Error : ", "Can't find articles !!!");
                         }

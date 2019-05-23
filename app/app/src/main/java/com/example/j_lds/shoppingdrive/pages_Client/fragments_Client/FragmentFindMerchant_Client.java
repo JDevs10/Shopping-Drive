@@ -1,4 +1,4 @@
-package com.example.j_lds.shoppingdrive.fragments_Client;
+package com.example.j_lds.shoppingdrive.pages_Client.fragments_Client;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,12 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.pages_Client.Login;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.adapters_Client.FindMerchantAdapter_Client;
 import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.object_class_Client.Merchant;
 import com.example.j_lds.shoppingdrive.object_class_Client.User;
-import com.example.j_lds.shoppingdrive.pages_Client.Login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;

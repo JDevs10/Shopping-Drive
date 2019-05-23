@@ -1,6 +1,5 @@
-package com.example.j_lds.shoppingdrive;
+package com.example.j_lds.shoppingdrive.pages_Client;
 
-import android.content.res.Configuration;
 import android.database.Cursor;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -15,13 +14,14 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.databaseOffline_Client.DatabaseHelper;
 import com.example.j_lds.shoppingdrive.databaseOffline_Client.model.Settings;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchant_Client;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentFindMerchantArticles_Client;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentProfile_Client;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentUserBasket_Client;
-import com.example.j_lds.shoppingdrive.fragments_Client.FragmentUserOrders_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentFindMerchant_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentFindMerchantArticles_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentProfile_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentUserBasket_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.fragments_Client.FragmentUserOrders_Client;
 
 public class Home_Client extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private String TAG = Home_Client.class.getSimpleName();
@@ -51,7 +51,7 @@ public class Home_Client extends AppCompatActivity implements NavigationView.OnN
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         toolbar = findViewById(R.id.toolbar);
-        //starting with FragmentFindMerchant()
+        //starting with FragmentFindMerchant_Client()
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_homeLayout);

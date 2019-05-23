@@ -1,7 +1,5 @@
 package com.example.j_lds.shoppingdrive.object_class_Client;
 
-import java.util.ArrayList;
-
 public class UserClient {
     private String firstname;
     private String lastname;

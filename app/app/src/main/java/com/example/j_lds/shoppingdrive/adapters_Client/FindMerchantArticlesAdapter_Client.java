@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.j_lds.shoppingdrive.DetailArticle_Client;
+import com.example.j_lds.shoppingdrive.pages_Client.DetailArticle_Client;
 import com.example.j_lds.shoppingdrive.R;
 import com.example.j_lds.shoppingdrive.object_class_Client.Article;
 import com.squareup.picasso.Picasso;
