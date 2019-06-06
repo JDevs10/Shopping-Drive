@@ -30,7 +30,6 @@ public class Home_Client extends AppCompatActivity implements NavigationView.OnN
     private DrawerLayout drawer;
     private NavigationView navigationView;
 
-    private String merchantUid;
     private String merchantCompanyName;
 
     private DatabaseHelper db;

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#33b5e5</color> <!-- colors.xml -->
+    <color name="colorPrimaryDark">#33b5e5</color>
+    <color name="colorAccent">#33b5e5</color> <!-- FF4081 -->
     <color name="color_background">#9FAEE5</color>
     <color name="color_default">#EEEEEE</color>
     <color name="color_dark_orange">#EB9800</color>
     <color name="color_dark">#000000</color>
     <color name="color_white">#e8e8e8</color>
+    <color name="color_white_white">#ffffff</color>
     <color name="color_olive">#808000</color>
     <color name="color_dark_green">#006400</color>
     <color name="color_transparent">#00ffffff</color>

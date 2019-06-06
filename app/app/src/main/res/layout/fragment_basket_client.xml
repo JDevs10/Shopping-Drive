@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_dark_green">
+    android:background="@color/color_white">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
-                    android:background="@drawable/round_edge_button_color_orange"
+                    android:background="@drawable/round_edge_button_color_blue"
                     android:padding="5dp"
                     android:text="@string/send_my_order"
                     android:textColor="@android:color/black"

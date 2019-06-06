@@ -17,7 +17,7 @@
         <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="@color/color_dark"
             android:id="@+id/toolbar"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
@@ -29,7 +29,7 @@
             android:layout_height="match_parent"/>
 
     </LinearLayout>
-    
+
     <android.support.design.widget.NavigationView
         android:id="@+id/home_nav_view"
         android:layout_width="wrap_content"

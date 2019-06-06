@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background"
+    android:background="@color/color_dark"
     android:orientation="vertical"
     android:gravity="center_horizontal">
 
@@ -15,7 +15,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:text="@string/registration"
-        android:textColor="@android:color/background_dark"
+        android:textColor="@color/color_white"
         android:textSize="36sp"
         app:fontFamily="cursive" />
 
@@ -27,6 +27,8 @@
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/street_address"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
         android:inputType="textPersonName" />
 
     <EditText
@@ -37,6 +39,8 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/city"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
         android:inputType="textPersonName"/>
 
     <EditText
@@ -47,6 +51,8 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country_code"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
         android:inputType="textPersonName" />
 
     <EditText
@@ -57,6 +63,8 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="@string/country"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
         android:inputType="textPersonName" />
 
     <LinearLayout
@@ -72,13 +80,15 @@
             android:layout_height="30dp"
             android:text="@string/image"
             android:textSize="18sp"
+            android:textColor="@color/color_white"
             app:layout_constraintEnd_toStartOf="@+id/button_getImage" />
 
         <Button
             android:id="@+id/button_getImage"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:text="import" />
+            android:text="import"
+            android:background="@drawable/round_edge_button_color_blue"/>
 
     </LinearLayout>
 
@@ -96,7 +106,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:layout_marginRight="30dp"
-            android:background="@drawable/round_edge_button_color_orange"
+            android:background="@drawable/round_edge_button_color_blue"
             android:text="@string/back" />
 
         <Button
@@ -105,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/round_edge_button_color_orange"
+            android:background="@drawable/round_edge_button_color_blue"
             android:text="@string/save" />
 
     </LinearLayout>
