@@ -32,7 +32,7 @@
     <string name="ordered">Ordered</string>
     <string name="textView_checkout_p2_info">We\'ve got your order. Your Items will be ready–delivered within 3-7 minutes</string>
     <string name="continue_shopping">Continue Shopping</string>
-    <string name="textView_checkout_info">Enter your password to confirm your order</string>
+    <string name="textView_checkout_info">Enter your email to confirm your order</string>
     <string name="confirm_oder">Confirm Oder</string>
     <string name="my_basket">My Basket</string>
     <string name="send_my_order">Send My Order</string>
@@ -49,4 +49,17 @@
         <item>Merchant</item>
         <item>Delivery Man</item>
     </string-array>
+
+    <string-array name="Login_Spinner_Item_Roles">
+        <item>Select role</item>
+        <item>Client</item>
+        <item>Merchant</item>
+        <item>Delivery Man</item>
+    </string-array>
+
+
+    <string name="title_home">Home</string>
+    <string name="title_my_products">My products</string>
+    <string name="title_commands">Commands</string>
+    <string name="title_my_profile">My profile</string>
 </resources>

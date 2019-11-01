@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_dark"
+    tools:context=".pages_Client.Login"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/textView_title"
+        android:layout_width="208dp"
+        android:layout_height="48dp"
+        android:text="@string/shopping_drive"
+        android:textColor="@color/color_white"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        app:fontFamily="cursive" />
+
+    <EditText
+        android:id="@+id/editText_user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_white"
+        android:textColorLink="@android:color/holo_blue_dark"/>
+
+    <EditText
+        android:id="@+id/editText_user_pwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textColor="@color/color_white"
+        android:textColorHint="@color/color_white"
+        android:textColorLink="@android:color/holo_blue_dark" />
+
+    <Spinner
+        android:id="@+id/spinner_login"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:entries="@array/Login_Spinner_Item_Roles" />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:background="@drawable/round_edge_button_color_blue"
+        android:text="@string/login"
+        android:layout_marginTop="60dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_margin="5dp">
+
+        <Button
+            android:id="@+id/button_pwd"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@color/color_transparent"
+            android:text="@string/password"
+            android:textColor="@color/color_white"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/textView_straight_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="|"
+            android:textColor="@color/color_white"
+            android:textSize="36sp"
+            android:layout_marginTop="8dp"/>
+
+        <Button
+            android:id="@+id/button_register"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:background="@color/color_transparent"
+            android:text="@string/register"
+            android:textColor="@color/color_white"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

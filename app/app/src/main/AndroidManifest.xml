@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.j_lds.shoppingdrive">
+    package="com.example.shoppingdrive">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".pages_Client.Login"
+        <activity android:name=".Client.Client_Pages.Client_DetailOrder"></activity>
+        <activity
+            android:name=".Login"
             android:configChanges="keyboardHidden|orientation|screenSize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,13 +23,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".pages_Client.Home_Client"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:configChanges="keyboardHidden|orientation|screenSize"></activity>
-        <activity android:name=".pages_Client.Register" />
-        <activity android:name=".pages_Client.ChangePWD" />
-        <activity android:name=".pages_Client.DetailArticle_Client" />
-        <activity android:name=".pages_Client.Checkout_Client" />
+            android:name=".Client.Client_Pages.Client_Home"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Register" />
+        <activity android:name=".ChangePWD" />
+        <activity android:name=".Client.Client_Pages.Client_DetailArticle" />
+        <activity android:name=".Client.Client_Pages.Client_Checkout" />
+        <activity
+            android:name=".Merchant.Merchant_MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
